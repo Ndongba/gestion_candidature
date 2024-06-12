@@ -6,5 +6,8 @@ use Illuminate\Http\Request;
 
 class CandidatureController extends Controller
 {
-    //
+    public function afficher_formulaire(){
+        
+        return view('candidature');
+    }
 }
