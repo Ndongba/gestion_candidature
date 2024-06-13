@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 
@@ -11,10 +12,13 @@ class AdminController extends Controller
 
     
 
-    public function listeCandadats()
+ 
+    public function listeCandadats($id)
     {
-        // Liste toutes les candidatures
-        $candidatures = Candidature::all();
-        return view('admins.candidats.index', compact('candidatures'));
+        $formation = Formation::find($id);
+        $candidatures = $formation->candidatures()->with('user')->get();
+        return view('admins.candidats.index', compact('formation', 'candidatures'));
     }
+  
+    
 }
