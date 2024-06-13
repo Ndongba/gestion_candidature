@@ -10,6 +10,11 @@
     
     <form action="candidature" method="POST" class="container" enctype="multipart/form-data">
         @csrf
+        @auth 
+            <h1>Formulaire de Candidature</h1>
+
+
+        @endauth
     <h1>Formulaire de Candidature</h1>
     <!-- <div class="d-inline-flex p-2">
         <div class="mb-3 row-col-12" >
@@ -31,10 +36,10 @@
             <input type="hidden" class="form-control" id="exampleFormControlInput1" name="formation_id" value="1">
         </div> 
         <div class="mb-3">
-            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="etat" value="en_evaluation">
+            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="etat">
         </div> 
         <div class="mb-3">
-            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="user_id" value="1">
+            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="user_id">
         </div> 
         <div class="mb-3">
             <label for="biographie" class="form-label">Biographie</label>

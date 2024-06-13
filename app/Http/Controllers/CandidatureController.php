@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidature;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,13 +23,14 @@ class CandidatureController extends Controller
         $request->validate([
             
             'formation_id' => 'required',
-            'user_id' => 'required',
             'biographie' => 'required',
             'motivation' => 'required',
             'cv' => 'required|file|mimes:jpeg,png,gif,svg,jpg,pdf|max:2048',
 
             
         ]);
+
+            $candidat=auth()->id();
                 $image= null;
             //verification si le fichier est uploadé
             if($request->hasFile('cv')){
@@ -47,6 +49,8 @@ class CandidatureController extends Controller
                 //Creer un CV avec les données validées et le chemin de l'image
                 $data=$request->all();
                 $data['cv'] = $image;
+                $data['user_id']=$candidat;
+                $data['etat']='en_evaluation';
                 // $data['user_id'] = $candidat;
 
                 Candidature::create($data); // Enregistrer le produit dans la base de données
@@ -55,4 +59,15 @@ class CandidatureController extends Controller
                
             }
        
+
+            public function afficher_candidature(){
+                $candidat=auth()->id();
+   
+                $user= Candidature::all()->where('user_id', $candidat);
+               
+
+                return view('affiche_candidature', compact('user'));
+                
+                
+            }
 }

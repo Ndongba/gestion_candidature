@@ -36,6 +36,7 @@ Route::controller(CandidatureController::class)->group(function () {
 
     Route::get('candidature', 'ajouter_candidature')->name('candidature');
     Route::post('candidature','traitement_candidature');
+    Route::get('affiche_candidature','afficher_candidature');
     
 });
 // Routes pour l'administration
