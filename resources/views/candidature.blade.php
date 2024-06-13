@@ -8,36 +8,46 @@
 </head>
 <body>
     
-    <form action="" method="POST" class="container">
+    <form action="candidature" method="POST" class="container">
+        @csrf
     <h1>Formulaire de Candidature</h1>
-    <div class="d-inline-flex p-2">
+    <!-- <div class="d-inline-flex p-2">
         <div class="mb-3 row-col-12" >
             <label for="situation actuelle" class="form-label">Situation Actuelle</label>
-            <select name="" id="" class="col-12">
+            <select name="situation actuelle" id="" class="col-12">
                 <option value=""></option>
                 
             </select>
         </div>
         <div class="mb-3 row-col-12">
             <label for="exampleFormControlInput1" class="form-label">Niveau d'étude</label>
-            <select name="" id="" class="col-12">
+            <select name="niveau d'etude" id="" class="col-12">
                 <option value=""></option>
             </select>
            
         </div>
-        </div>
+        </div> -->
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="formation_id" value="1">
+        </div> 
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="etat" value="en_evaluation">
+        </div> 
+        <div class="mb-3">
+            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="user_id" value="1">
+        </div> 
         <div class="mb-3">
             <label for="biographie" class="form-label">Biographie</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="biographie"></textarea>
         </div>
         <div class="mb-3">
             <label for="motivation" class="form-label">Motivation</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="motivation"></textarea>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="cv" class="form-label">CV</label>
             <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div> 
+        </div>  -->
 
             <button type="submit" class="btn btn-danger">Envoyer</button>
 </form>

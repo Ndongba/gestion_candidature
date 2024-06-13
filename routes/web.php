@@ -9,4 +9,10 @@ Route::get('/', function () {
 
 
 
-Route::get('candidature',[CandidatureController::class,'afficher_formulaire']);
+Route::controller(CandidatureController::class)->group(function () {
+
+    Route::get('candidature', 'ajouter_candidature')->name('candidature');
+    Route::post('candidature','traitement_candidature');
+    
+  
+});
