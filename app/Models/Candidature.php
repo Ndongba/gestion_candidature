@@ -13,7 +13,8 @@ class Candidature extends Model
         'motivation',
         'etat',
         'user_id',
-        'formation_id'
+        'formation_id',
+        'cv',
     ];
 
 
