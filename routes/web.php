@@ -30,7 +30,6 @@ Route::controller(AuthController::class)->group(function () {
 
 
 
-Route::get('/formations', [FormationController::class, 'index'])->name('formations');
 
 Route::controller(CandidatureController::class)->group(function () {
 
@@ -46,3 +45,14 @@ Route::controller(AdminController::class)->prefix('admin')->group(function () {
     // Valide une commande
    
 });
+
+
+//Route pour afficher les formations pour les candidats
+Route::get('/formations', [FormationController::class, 'index'])->name('formations');
+
+//Route qui permet d'ajouter une formation
+Route::get ('/ajoutformation', [FormationController::class, 'ajoutformation'])->name('ajouter');
+Route::post('/formations', [FormationController::class, 'store'])->name('formations.store');
+
+//Cette route va nous peemettre de gerer la suppression d'une formation
+Route::delete('formations/{id}', [FormationController::class, 'destroy'])->name('Suppression');
