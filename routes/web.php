@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidatureController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormationController;
@@ -18,4 +19,13 @@ Route::controller(AuthController::class)->group(function () {
 });
 
 
+
 Route::get('/formations', [FormationController::class, 'index'])->name('formations');
+
+Route::controller(CandidatureController::class)->group(function () {
+
+    Route::get('candidature', 'ajouter_candidature')->name('candidature');
+    Route::post('candidature','traitement_candidature');
+    
+  
+});
