@@ -41,11 +41,12 @@ Route::controller(CandidatureController::class)->group(function () {
 // Routes pour l'administration
 Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
     // Affiche le tableau de bord de l'admin
-    Route::get('', 'listeCandadats')->name('candidats.admin');
-    Route::get('candidats/{id}', 'listeCandadats')->name('candidats.show');
-
+    Route::get('candidats/', 'listeCandidats')->name('candidats.admin');
+    Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
+    Route::get('/formation/{formation}/candidature/{candidature}',  'detailCandidat')->name('candidature.detail');
     // Valide une commande
-
+    Route::patch('/formation/{formation}/candidature/{candidature}/update-status',  'updateStatus')
+    ->name('candidature.updateStatus');
    
 });
 
