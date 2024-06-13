@@ -18,6 +18,9 @@ Route::get('detail',[FormationController::class ,'Detail']);
 Route::controller(FormationController::class)->group(function () {
     Route::get('/afficherFormation', 'afficherFormation')->name('afficherFormation');
 
+    Route::get('/modifierFormation/{id}', 'modifierFormation')->name('modifierFormation');
+    Route::post('modifierFormationTraitement','modifierFormationTraitement')->name('modifierFormationTraitement');
+
 });
 
 
