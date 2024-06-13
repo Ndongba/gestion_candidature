@@ -13,8 +13,7 @@ use App\Http\Controllers\FormationController;
 // });
 
 Route::get('detail',[FormationController::class ,'Detail']);
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\FormationController;
+
 
 
 
