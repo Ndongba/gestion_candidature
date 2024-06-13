@@ -240,7 +240,11 @@
                 </div>
 
                 <div class="flex items-center">
-                    {{-- <span class="text-gray-800 mr-4">{{ Auth::user()->prenom }}</span> --}}
+                    @auth
+                    <span class="text-gray-800 mr-4">{{ Auth::user()->prenom }}</span>
+
+                        
+                    @endauth
                     <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
                         class="w-10 h-10 rounded-full">
                 </div>
