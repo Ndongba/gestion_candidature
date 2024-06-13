@@ -81,7 +81,7 @@
             </div>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="#" class="text-xs text-gray-500 ">Pas de compte ? S’inscrire</a>
+                <a href="#" class="text-xs text-gray-500 uppercase">Pas de compte ? S’inscrire</a>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </form>

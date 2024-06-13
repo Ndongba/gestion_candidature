@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,4 +18,14 @@ Route::controller(AuthController::class)->group(function () {
     Route::post('/login/save', 'loginSave')->name('login.save');
 
     Route::delete('/logout', 'logout')->name('logout');
+});
+
+
+// Routes pour l'administration
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
+    // Affiche le tableau de bord de l'admin
+    Route::get('candidats', 'listeCandadats')->name('candidats.admin');
+
+    // Valide une commande
+   
 });
