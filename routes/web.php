@@ -2,10 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FormationController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 
 Route::controller(AuthController::class)->group(function () {
@@ -18,3 +16,6 @@ Route::controller(AuthController::class)->group(function () {
 
     Route::delete('/logout', 'logout')->name('logout');
 });
+
+
+Route::get('/formations', [FormationController::class, 'index'])->name('formations');
