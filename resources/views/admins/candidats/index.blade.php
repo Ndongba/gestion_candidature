@@ -3,7 +3,6 @@
 
 
     <!-- Content -->
-
     <div class="">
         <h2 class="text-2xl mt-10 font-bold mb-6">Liste des Candidatures</h2>
         <table class="min-w-full bg-white rounded-lg">
@@ -44,5 +43,6 @@
             </tbody>
         </table>
     </div>
+   
 
 </x-layout>

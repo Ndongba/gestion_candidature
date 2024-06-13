@@ -10,7 +10,7 @@ class FormationController extends Controller
 
     public function Detail(){
         return view('detailformation');
-
+    }
     //Ctte fonction c'est pour l'affichage des formations
     public function index()
     {
@@ -20,4 +20,11 @@ class FormationController extends Controller
         // Passer les formations à la vue
         return view('formation', compact('formations'));
     }
+
+
+    public function afficherFormation(){
+        $formations = Formation::all();
+        return view('admins.formations.listeformation', compact('formations'));
+    }
+    
 }

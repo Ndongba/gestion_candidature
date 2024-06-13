@@ -15,6 +15,10 @@ use App\Http\Controllers\FormationController;
 Route::get('detail',[FormationController::class ,'Detail']);
 
 
+Route::controller(FormationController::class)->group(function () {
+    Route::get('/afficherFormation', 'afficherFormation')->name('afficherFormation');
+
+});
 
 
 Route::controller(AuthController::class)->group(function () {
@@ -45,4 +49,7 @@ Route::controller(AdminController::class)->prefix('admin')->group(function () {
 
     // Valide une commande
    
+
+
+
 });

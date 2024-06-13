@@ -128,7 +128,7 @@
                         </defs>
                     </svg> <span class="ml-4 text-gray-700 hover:text-white font-bold">Gestion Candidats</span>
                 </a>
-                <a href="#"
+                <a href="{{ route('afficherFormation') }}"
                     class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('formation.admin')) active @endif">
                     {{-- Fin icon candidat --}}
 
@@ -246,13 +246,16 @@
 
 
             <!-- Content -->
-            <div class="pt-24 ml-64  mt-28 px-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="pt-24 ml-64  mt-2 px-8">
+                <div class="">
                     {{ $slot }}
                 </div>
             </div>
         </div>
     </div>
+    {{-- <div class="bg-white p-6 rounded-lg shadow-md">
+        {{ $slot }}
+    </div> --}}
 
         <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
 </body>
