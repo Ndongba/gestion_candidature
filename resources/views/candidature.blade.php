@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form action="candidature" method="POST" class="container">
+    <form action="candidature" method="POST" class="container" enctype="multipart/form-data">
         @csrf
     <h1>Formulaire de Candidature</h1>
     <!-- <div class="d-inline-flex p-2">
@@ -44,10 +44,10 @@
             <label for="motivation" class="form-label">Motivation</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="motivation"></textarea>
         </div>
-        <!-- <div class="mb-3">
+         <div class="mb-3">
             <label for="cv" class="form-label">CV</label>
-            <input type="file" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>  -->
+            <input type="file" class="form-control" id="exampleFormControlInput1" name="cv">
+        </div> 
 
             <button type="submit" class="btn btn-danger">Envoyer</button>
 </form>
