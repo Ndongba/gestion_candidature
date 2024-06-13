@@ -40,7 +40,7 @@
         <select class="bg-white text-gray-700 focus:outline-none shadow-outline focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" name="etat" id="etat">
             <option value="ouvert">Ouvert</option>
             <option value="fermer">Fermer</option>
-        </select>
+        </select> 
     </div>
     <div class="py-8">
         <button type="submit" class="bg-red-700 text-white font-bold py-5 px-4 w-full rounded-lg hover:bg-red-600">Ajouter</button>

@@ -148,6 +148,10 @@
             width: 300px;
             padding: 20px;
         }
+        .soft_skill{
+            display: flex;
+            gap: 800px;
+        }
         .skills-list {
             list-style-type: none;
             padding: 0;
@@ -174,9 +178,9 @@
         <button class="button">Bouton</button>
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
         <div class="card">
-            <img src="https://via.placeholder.com/300" alt="Image">
+            <img src="{{ asset('images/image.png') }}" alt="Image">
         </div>
         <div class="container">
             <div class="card">
@@ -190,6 +194,24 @@
                     <li><img src="https://via.placeholder.com/24" alt="Critical Thinking Icon"> Critical Thinking</li>
                 </ul>
             </div>
+        </div>
+    </div> --}}
+    <div class="soft_skill">
+        <div class="front-end">
+           
+            <ul class="">
+               <img src="{{ asset('images/image.png') }}" alt="">
+            </ul>
+        </div>
+        <div class="back-end">
+            <ul class="skills-list">
+                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Communication</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Travail d'équipe</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Résolution de problèmes</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Gestion du temps</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Adaptabilité</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Esprit critique</li>
+            </ul>
         </div>
     </div>
 
