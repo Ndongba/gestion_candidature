@@ -56,6 +56,9 @@
         <!-- ACTVE MENU -->
         <div class="sidebar bg-white shadow-lg h-screen w-64 hover:w-72 fixed transition-all duration-300">
             <div class="p-6">
+                <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png" alt="Admin Photo"
+                class="w-full ">
+
             </div>
             <nav class="mt-20">
                 <a href="#"
@@ -232,7 +235,7 @@
         <div class=" flex-1">
             <!-- Navbar -->
             <div
-                class="bg-red-700 shadow-md py-9 right-0 container px-8 fixed top-0 w-full flex items-center justify-between z-10">
+                class="bg-red-700 shadow-md py-8 right-0  rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
                 <div class="flex items-center">
                 </div>
 
@@ -246,8 +249,8 @@
 
 
             <!-- Content -->
-            <div class="pt-24 ml-64  mt-28 px-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="pt-24 ml-64  mt-8 px-8">
+                <div class="p-6 ">
                     {{ $slot }}
                 </div>
             </div>
