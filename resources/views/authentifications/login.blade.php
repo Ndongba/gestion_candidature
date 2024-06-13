@@ -33,14 +33,14 @@
     </nav>
 
  <!-- https://play.tailwindcss.com/MIwj5Sp9pw -->
- <div class="py-16">
-    <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-        <div class="hidden lg:block lg:w-1/2 bg-cover"
-            style="background-image:url('{{ asset(' images/Rectangle.jpg') }}')">
+ <div class="">
+    <div class=" bg-white rounded-lg shadow-lg overflow-hidden mx-auto h-screen grid grid-cols-2 gap-4   w-full">
+        <div class="hidden lg:block lg:w-3/3  ml-16 bg-cover"
+            style="background-image:url('{{ asset('./images/Rectangle.jpg') }}')">
         </div>
-        <div class="w-full p-8 lg:w-1/2">
+        <div class="center my-32 items-center justify-center p-8 mx-16 lg:w-2/3">
             
-            <a href="#" class="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+            <a href="#" class="flex mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
                 <div class="px-4 py-3">
                     <svg class="h-6 w-6" viewBox="0 0 40 40">
                         <path
@@ -66,22 +66,22 @@
             </div>
             <form  action="{{ route('login.save') }}" method="post">
                 @csrf
-            <div class="mt-4">
+            <div class="py-6">
                 <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                <input class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="email" placeholder="email" name="email" id="email"  />
+                <input class="bg-white text-gray-700 focus:outline-none shadow-outline focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" type="email" placeholder="email" name="email" id="email"  />
             </div>
-            <div class="mt-4">
+            <div class="py-6">
                 <div class="flex justify-between">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Mot de passe</label>
                 </div>
-                <input class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" placeholder="password" name="password" id="password"/>
+                <input class="bg-gray-100 text-gray-700 focus:outline-none shadow-outline placeholder:bg-slate-300 focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" type="password" placeholder="password" name="password" id="password"/>
             </div>
-            <div class="mt-8">
-                <button type="submit" class="bg-red-700 text-white ro font-bold py-2 px-4 w-full rounded hover:bg-red-600">Login</button>
+            <div class="py-8">
+                <button type="submit" class="bg-red-700 text-white ro font-bold py-5 px-4 w-full rounded-lg hover:bg-red-600">Se Connecter</button>
             </div>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="#" class="text-xs text-gray-500 uppercase">Se Connecter</a>
+                <a href="#" class="text-xs text-gray-500 ">Pas de compte ? S’inscrire</a>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </form>
