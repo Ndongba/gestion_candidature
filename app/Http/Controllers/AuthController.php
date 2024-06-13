@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\AuthController;
+
 class AuthController extends Controller
 {
     public function register(){
@@ -41,15 +42,28 @@ class AuthController extends Controller
         return view('authentifications.login');
        }
     
-       public function loginSave(Request $request){
-        $creditials=[
-            'email'=>$request->email,
-            'password' => $request->password,
-        ];
-        if(Auth::attempt($creditials)){
-            return redirect ('/')->with('success','connexion avec succes');
-        }
-     return back()->with('error','vérifier votre mail ou mot de passe');
+       public function loginSave(Request $request)
+       {
+           $credentials = [
+               'email' => $request->email,
+               'password' => $request->password,
+           ];
+       
+           if (Auth::attempt($credentials)) {
+               // L'utilisateur est authentifié
+               if (Auth::user()->role === 'personnel') {
+                   return redirect('admin/candidats')->with('success', 'Connexion réussie en tant qu\'admin');
+               } else if (Auth::user()->role === 'candidat') {
+                   return redirect('/')->with('success', 'Connexion réussie en tant que candidat');
+               } else {
+                   return redirect('/')->with('success', 'Connexion réussie');
+               }
+           } else {
+               // Les informations d'identification sont incorrectes
+               return redirect()->back()->with('error', 'Identifiants incorrects');
+           }
+           return back()->with('error','vérifier votre mail ou mot de passe');
+
        }
 
        public function logout(){

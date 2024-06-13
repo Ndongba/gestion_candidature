@@ -37,22 +37,20 @@ Route::controller(AuthController::class)->group(function () {
 
 
 
-Route::get('/formations', [FormationController::class, 'index'])->name('formations');
 
 Route::controller(CandidatureController::class)->group(function () {
 
     Route::get('candidature', 'ajouter_candidature')->name('candidature');
     Route::post('candidature','traitement_candidature');
+    Route::get('affiche_candidature','afficher_candidature');
     
 });
 // Routes pour l'administration
-Route::controller(AdminController::class)->prefix('admin')->group(function () {
+Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
     // Affiche le tableau de bord de l'admin
-    Route::get('candidats', 'listeCandadats')->name('candidats.admin');
-
+    Route::get('candidats/', 'listeCandidats')->name('candidats.admin');
+    Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
+    Route::get('/formation/{formation}/candidature/{candidature}',  'detailCandidat')->name('candidature.detail');
     // Valide une commande
    
-
-
-
 });
