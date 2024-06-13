@@ -3,6 +3,9 @@
 use App\Http\Controllers\CandidatureController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminController;
+
 use App\Http\Controllers\FormationController;
 
 // Route::get('/', function () {
@@ -35,5 +38,12 @@ Route::controller(CandidatureController::class)->group(function () {
     Route::get('candidature', 'ajouter_candidature')->name('candidature');
     Route::post('candidature','traitement_candidature');
     
-  
+});
+// Routes pour l'administration
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
+    // Affiche le tableau de bord de l'admin
+    Route::get('candidats', 'listeCandadats')->name('candidats.admin');
+
+    // Valide une commande
+   
 });

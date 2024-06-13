@@ -20,4 +20,13 @@ class Formation extends Model
         'date_debut_appel',
         'date_fin_appel',
     ];
+
+
+    public function candidatures()
+    {
+        return $this->hasMany(Candidature::class);
+    }
 }
+
+
+
