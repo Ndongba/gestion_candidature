@@ -8,9 +8,9 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\FormationController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('detail',[FormationController::class ,'Detail']);
 
@@ -51,6 +51,7 @@ Route::controller(AdminController::class)->middleware('personnel')->prefix('admi
     Route::get('candidats/', 'listeCandidats')->name('candidats.admin');
     Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
     Route::get('/formation/{formation}/candidature/{candidature}',  'detailCandidat')->name('candidature.detail');
-    // Valide une commande
-   
+    // Valide
+    Route::patch('/formation/{formation}/candidature/{candidature}/update-status', 'updateStatus')
+    ->name('candidature.updateStatus');
 });

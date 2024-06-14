@@ -10,7 +10,7 @@ class FormationController extends Controller
 
     public function Detail(){
         return view('detailformation');
-
+    }
     //Ctte fonction c'est pour l'affichage des formations
     public function index()
     {
