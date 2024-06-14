@@ -67,3 +67,5 @@ Route::post('/candidats/formations', [FormationController::class, 'store'])->nam
 //Cette route va nous peemettre de gerer la suppression d'une formation
 Route::delete('formations/{id}', [FormationController::class, 'destroy'])->name('Suppression');
 
+    // Valide
+    

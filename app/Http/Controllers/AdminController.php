@@ -24,11 +24,12 @@ class AdminController extends Controller
     public function detailCandidat($formationId, $candidatureId)
     {
         // Récupérer la candidature en fonction de son ID
+        $candidatures = Candidature::all();
         $candidature = Candidature::findOrFail($candidatureId);
         $formation = Formation::findOrFail($formationId);
 
         // Passer les données à la vue candidature.show.blade.php
-        return view('admins.candidats.detail', compact('formation', 'candidature'));
+        return view('admins.candidats.detail', compact('formation', 'candidatures', 'candidature'));
     }
 
     public function updateStatus(Request $request, $formationId, $candidatureId)

@@ -13,6 +13,7 @@ class FormationController extends Controller
         return view('detailformation', compact('formation'));
     }
 
+
     //Ctte fonction c'est pour l'affichage des formations
     public function index()
     {

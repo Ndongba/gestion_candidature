@@ -16,9 +16,9 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || Auth::user()->role !== 'personnel') {
+        if (!Auth::check() || Auth::user()->role !== '  ersonnel') {
             abort(403, 'Unauthorized action.');
         }
         return $next($request);
-    }
+    }       
 }
