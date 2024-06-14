@@ -11,6 +11,45 @@
             padding: 0;
             box-sizing: border-box;
         }
+        header {
+    background-color: white; /* Couleur de fond blanche /
+    color: #fff;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); / Ajout d'un trait noir avec opacité */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 25px;
+ 
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-right: 100px;
+}
+
+header ul li {
+    margin: 0;
+}
+
+header ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+.logo {
+    margin-left: 50px;
+}
 
         .row {
             background-color: #ce0033;
@@ -204,6 +243,8 @@
         .pre-requis{
             background-color: #F1F5F8;
             text-align: center;
+            height: 1100px;
+            margin-top: 50px;
         }
         .paragraphe{
             margin-left: 400px;
@@ -248,9 +289,77 @@
         .skills-list{
             
         }
+        .footer {
+    background-color: black;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .social-icons {
+    margin-top: 1rem;
+}
+
+footer .social-icons a {
+    color: #fff;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+footer p {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.log {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-left: 30px;
+}
+
+.foot {
+    margin-right: 400px;
+    justify-content: space-between;
+}
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="#" alt="Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Formations</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="row">
         <div class="text">Texte à gauche</div>
         <button class="button">Bouton</button>
@@ -391,9 +500,37 @@
         </div>
     </div>
 
-    <div >
+    <footer>
+        <div class="log">
+            <a href="#">
+                <img src="#" alt="Logo">
+            </a>
 
-    </div>
+
+            <nav class="foot">
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Formations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+
+        <br><br><br>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copy">Copyright &copy; (DN) 2024</p>
+
+    </footer>
+
 
 </body>
 </html>
