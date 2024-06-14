@@ -23,7 +23,7 @@ header nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    font-size: 25px;
+    font-size: 20px;
  
 }
 
@@ -34,15 +34,18 @@ header .logo img {
 header ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 60px;
+    font-weight: bolder;
     margin-right: 100px;
 }
 
 header ul li {
     margin: 0;
+    
 }
 
 header ul li a {
+  
     color: black;
     text-decoration: none;
 }
@@ -315,9 +318,9 @@ header ul li a {
         .skills-list{
             
         }
-        .footer {
+    .footer {
     background-color: black;
-    color: #fff;
+    color: #000000;
     padding: 1rem 0;
     text-align: center;
 }
@@ -375,7 +378,7 @@ footer p {
         <nav>
             <div class="logo">
                 <a href="#">
-                    <img src="#" alt="Logo">
+                    <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png" alt="Logo">
                 </a>
             </div>
             <ul>
