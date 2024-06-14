@@ -6,6 +6,7 @@ use App\Models\Candidature;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\DecisionCandidature;
 
 class CandidatureController extends Controller
 {
@@ -70,4 +71,6 @@ class CandidatureController extends Controller
                 
                 
             }
+
+
 }
