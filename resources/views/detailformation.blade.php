@@ -6,11 +6,50 @@
     <title>Mise en page avec soft skills</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Nunito Sans', Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+        header {
+    background-color: white; /* Couleur de fond blanche /
+    color: #fff;
+    padding: 1rem 0;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1); / Ajout d'un trait noir avec opacité */
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 25px;
+ 
+}
+
+header .logo img {
+    height: 50px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-right: 100px;
+}
+
+header ul li {
+    margin: 0;
+}
+
+header ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+.logo {
+    margin-left: 50px;
+}
 
         .row {
             background-color: #ce0033;
@@ -48,7 +87,7 @@
             font-size: 42px;
             margin-left: 120px;
         }
-        .competence{
+         .competence{
             margin-top: 100px;
             margin-left: 120px;
         }
@@ -68,7 +107,8 @@
             cursor: pointer;
             text-transform: uppercase;
         }
-        /* .c-container {
+        /*
+        .c-container 
             background-color: #ce0033;
             display: flex;
             justify-content: center;
@@ -125,9 +165,8 @@
             justify-content: center;
             text-align: center;
             align-items: center;
-            gap: 20px;
             padding: 20px;
-            gap: 600px;
+            gap: 200px;
             margin-left: 100px;
             margin-right: 100px;
             border-top-left-radius: 50px;
@@ -149,12 +188,43 @@
             padding: 20px;
         }
         .soft_skill{
+            margin-top: 50px;
+            margin-left: 100px;
             display: flex;
             gap: 800px;
+            font-size: 20px;
         }
         .skills-list {
             list-style-type: none;
-            padding: 0;
+            padding-left: 30px;
+        }
+        .back-end h1{
+            text-align: center;
+        }
+        .back-end{
+            height: 545px;
+            width: 430px;
+            background-color: #FFF2F2;
+            border-top-right-radius: 100px;
+        }
+        .back-ends h1{
+            padding-bottom: 50px;
+            text-align: center;
+        }
+        .back-ends{
+            height: 545px;
+            color: #FFF2F2;
+            border-top-right-radius: 100px;
+            margin-top: 50px;
+            margin-left: 100px;
+            font-size: 20px;
+        }
+        .front-end{
+            color: #FFF2F2;
+            font-size: 20px;
+        }
+        .front-end h1{
+            margin-top: 90px;
         }
         .skills-list li {
             display: flex;
@@ -170,47 +240,146 @@
             margin-right: 10px;
         }
 
+        .pre-requis{
+            background-color: #F1F5F8;
+            text-align: center;
+            height: 1100px;
+            margin-top: 50px;
+        }
+        .paragraphe{
+            margin-left: 400px;
+            margin-right: 400px;
+        }
+        .requis{
+            width: 650px;
+            text-align: center;
+            background-color: #ce0033;
+            border-top-left-radius: 100px;
+            font-size: 20px;
+            margin-left: 100px;
+            padding-left: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            position: relative;
+        }
+        .X{
+            display: flex;
+            margin-top: 50px;
+            display: flex;
+            font-size: 20px;
+            color: #FFF2F2
+        }
+        .debouche{
+           
+            width: 830px;
+            background-color: #ce0033;
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            font-size: 20px;
+            /* margin-left: 100px; */
+            margin-top: 200px;
+            padding-left: 100px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            position: absolute;
+            left: 715px;
+            color: #FFF2F2;
+
+        }
+        .skills-list{
+            
+        }
+        .footer {
+    background-color: black;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+footer nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 0;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer .social-icons {
+    margin-top: 1rem;
+}
+
+footer .social-icons a {
+    color: #fff;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+footer p {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.log {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    margin-left: 30px;
+}
+
+.foot {
+    margin-right: 400px;
+    justify-content: space-between;
+}
     </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="#" alt="Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Formations</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="row">
         <div class="text">Texte à gauche</div>
         <button class="button">Bouton</button>
     </div>
-
-    {{-- <div class="container">
-        <div class="card">
-            <img src="{{ asset('images/image.png') }}" alt="Image">
-        </div>
-        <div class="container">
-            <div class="card">
-                <h2>Soft Skills</h2>
-                <ul class="skills-list">
-                    <li><img src="https://via.placeholder.com/24" alt="Communication Icon"> Communication</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Teamwork Icon"> Teamwork</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Problem Solving Icon"> Problem Solving</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Time Management Icon"> Time Management</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Adaptability Icon"> Adaptability</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Critical Thinking Icon"> Critical Thinking</li>
-                </ul>
-            </div>
-        </div>
-    </div> --}}
+    
     <div class="soft_skill">
         <div class="front-end">
-           
-            <ul class="">
+            <ul class="mon_candidature">
                <img src="{{ asset('images/image.png') }}" alt="">
             </ul>
         </div>
         <div class="back-end">
+            <h1>SOFT SKILL</h1>
             <ul class="skills-list">
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Communication</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Travail d'équipe</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Résolution de problèmes</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Gestion du temps</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Adaptabilité</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Esprit critique</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
             </ul>
         </div>
     </div>
@@ -258,34 +427,110 @@
     </div> --}}
     <div>
     <div class="A-container">
+    
         <div class="front-end">
-            <h2>Compétences Techniques</h2>
             <ul class="skills-list">
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Programmation</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Gestion de base de données</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Sécurité informatique</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Réseaux</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Cloud Computing</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Développement Web</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <h1>FRONT-END</h1>
             </ul>
         </div>
-        <div class="back-end">
+        <div class="back-ends">
+            <h1>BACK-END</h1>
             <ul class="skills-list">
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Communication</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Travail d'équipe</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Résolution de problèmes</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Gestion du temps</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Adaptabilité</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Esprit critique</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
             </ul>
-            <h2>Compétences Douces</h2>
         </div>
     </div>
   
-
-    <div c >
-
+    <div class="pre-requis">
+        <h1>PRE-REQUIS & DEBOUCHÉ</h1>
+        <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam 
+            reprehenderit at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi aLorem ipsum
+             dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit
+             at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi a..Lorem ipsum dolor, sit amet 
+            consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi
+             impedit veniam placeat nobis illum minus delectus itaque modi a. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+             Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi impedit veniam placeat nobis illum
+             minus delectus itaque modi a.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab
+        </p>
+        {{-- <div class="Requis">
+            <ul class="skills-list">
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+            </ul>
+        </div>
+        <div class="debouché">
+            <h1>BACK-END</h1>
+            <ul class="skills-list">
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+            </ul>
+        </div> --}}
+        <div class="X">
+            <div class="requis">
+                <h1>SOFT SKILL</h1>
+                <ul class="skills-list">
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+            <div class="debouche">
+                <h1>SOFT SKILL</h1>
+                <ul class="skills-list">
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <footer>
+        <div class="log">
+            <a href="#">
+                <img src="#" alt="Logo">
+            </a>
+
+
+            <nav class="foot">
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="#">Formations</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+
+
+
+        <br><br><br>
+
+        <div class="social-icons">
+            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p class="copy">Copyright &copy; (DN) 2024</p>
+
+    </footer>
+
 
 </body>
 </html>

@@ -235,7 +235,7 @@
         <div class=" flex-1">
             <!-- Navbar -->
             <div
-                class="bg-red-700 shadow-md py-8 right-0  rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
+                class="bg-red-700 shadow-md py-8 right-0 w-100 mix-w-screen-xl rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
                 <div class="flex items-center">
                 </div>
 
@@ -253,8 +253,8 @@
 
 
             <!-- Content -->
-            <div class="pt-24 ml-64  mt-28 px-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="pt-24 ml-64  mt- px-8">
+                <div class=" p-6 ">
                     {{ $slot }}
                 </div>
             </div>
