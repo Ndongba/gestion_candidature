@@ -51,6 +51,32 @@ header ul li a {
     margin-left: 50px;
 }
 
+.btn {
+           background-color: #ce0033;
+           color: white;
+           padding: 15px 30px;
+           border: none;
+           border-radius: 50px;
+           font-size: 16px;
+           font-weight: bold;
+           cursor: pointer;
+           transition: background-color 0.3s ease, transform 0.2s ease;
+           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+       }
+
+
+       .btn:hover {
+           background-color: #b0002b;
+           transform: translateY(-2px);
+       }
+
+
+       .btn:active {
+           background-color: #a30028;
+           transform: translateY(0);
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+       }
+
         .row {
             background-color: #ce0033;
             color: white;
@@ -362,7 +388,7 @@ footer p {
     </header>
     <div class="row">
         <div class="text">{{ $formation->libelle }}</div>
-        <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="button">Bouton</button></a>
+        {{-- <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="button">Bouton</button></a> --}}
     </div>
     
     <div class="soft_skill">
@@ -389,8 +415,8 @@ footer p {
         <div col="8">
             LA FORMATION EST 100% GRATUITE
         </div>
-        <div col="4">
-            3eme section
+        <div>
+            <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="btn"><strong>Postuler</strong></button></a>
         </div>
     </div>
 
