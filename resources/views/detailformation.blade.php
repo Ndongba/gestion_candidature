@@ -206,11 +206,48 @@
             text-align: center;
         }
         .paragraphe{
-            
             margin-left: 400px;
             margin-right: 400px;
         }
+        .requis{
+            width: 650px;
+            text-align: center;
+            background-color: #ce0033;
+            border-top-left-radius: 100px;
+            font-size: 20px;
+            margin-left: 100px;
+            padding-left: 50px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            position: relative;
+        }
+        .X{
+            display: flex;
+            margin-top: 50px;
+            display: flex;
+            font-size: 20px;
+            color: #FFF2F2
+        }
+        .debouche{
+           
+            width: 830px;
+            background-color: #ce0033;
+            border-top-right-radius: 100px;
+            border-bottom-left-radius: 100px;
+            font-size: 20px;
+            /* margin-left: 100px; */
+            margin-top: 200px;
+            padding-left: 100px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            position: absolute;
+            left: 715px;
+            color: #FFF2F2;
 
+        }
+        .skills-list{
+            
+        }
     </style>
 </head>
 <body>
@@ -221,7 +258,6 @@
     
     <div class="soft_skill">
         <div class="front-end">
-           
             <ul class="mon_candidature">
                <img src="{{ asset('images/image.png') }}" alt="">
             </ul>
@@ -316,7 +352,47 @@
             consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi
              impedit veniam placeat nobis illum minus delectus itaque modi a. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
              Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi impedit veniam placeat nobis illum
-             minus delectus itaque modi a.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab</p>
+             minus delectus itaque modi a.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab
+        </p>
+        {{-- <div class="Requis">
+            <ul class="skills-list">
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+            </ul>
+        </div>
+        <div class="debouché">
+            <h1>BACK-END</h1>
+            <ul class="skills-list">
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+            </ul>
+        </div> --}}
+        <div class="X">
+            <div class="requis">
+                <h1>SOFT SKILL</h1>
+                <ul class="skills-list">
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+            <div class="debouche">
+                <h1>SOFT SKILL</h1>
+                <ul class="skills-list">
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                    <li><img src="{{ asset('images/boule.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div >
+
     </div>
 
 </body>
