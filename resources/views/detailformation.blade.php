@@ -6,7 +6,7 @@
     <title>Mise en page avec soft skills</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Nunito Sans', Arial, sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -48,7 +48,7 @@
             font-size: 42px;
             margin-left: 120px;
         }
-        .competence{
+         .competence{
             margin-top: 100px;
             margin-left: 120px;
         }
@@ -68,7 +68,8 @@
             cursor: pointer;
             text-transform: uppercase;
         }
-        /* .c-container {
+        /*
+        .c-container 
             background-color: #ce0033;
             display: flex;
             justify-content: center;
@@ -125,9 +126,8 @@
             justify-content: center;
             text-align: center;
             align-items: center;
-            gap: 20px;
             padding: 20px;
-            gap: 600px;
+            gap: 200px;
             margin-left: 100px;
             margin-right: 100px;
             border-top-left-radius: 50px;
@@ -149,12 +149,43 @@
             padding: 20px;
         }
         .soft_skill{
+            margin-top: 50px;
+            margin-left: 100px;
             display: flex;
             gap: 800px;
+            font-size: 20px;
         }
         .skills-list {
             list-style-type: none;
-            padding: 0;
+            padding-left: 30px;
+        }
+        .back-end h1{
+            text-align: center;
+        }
+        .back-end{
+            height: 545px;
+            width: 430px;
+            background-color: #FFF2F2;
+            border-top-right-radius: 100px;
+        }
+        .back-ends h1{
+            padding-bottom: 50px;
+            text-align: center;
+        }
+        .back-ends{
+            height: 545px;
+            color: #FFF2F2;
+            border-top-right-radius: 100px;
+            margin-top: 50px;
+            margin-left: 100px;
+            font-size: 20px;
+        }
+        .front-end{
+            color: #FFF2F2;
+            font-size: 20px;
+        }
+        .front-end h1{
+            margin-top: 90px;
         }
         .skills-list li {
             display: flex;
@@ -170,6 +201,16 @@
             margin-right: 10px;
         }
 
+        .pre-requis{
+            background-color: #F1F5F8;
+            text-align: center;
+        }
+        .paragraphe{
+            
+            margin-left: 400px;
+            margin-right: 400px;
+        }
+
     </style>
 </head>
 <body>
@@ -177,40 +218,23 @@
         <div class="text">Texte à gauche</div>
         <button class="button">Bouton</button>
     </div>
-
-    {{-- <div class="container">
-        <div class="card">
-            <img src="{{ asset('images/image.png') }}" alt="Image">
-        </div>
-        <div class="container">
-            <div class="card">
-                <h2>Soft Skills</h2>
-                <ul class="skills-list">
-                    <li><img src="https://via.placeholder.com/24" alt="Communication Icon"> Communication</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Teamwork Icon"> Teamwork</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Problem Solving Icon"> Problem Solving</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Time Management Icon"> Time Management</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Adaptability Icon"> Adaptability</li>
-                    <li><img src="https://via.placeholder.com/24" alt="Critical Thinking Icon"> Critical Thinking</li>
-                </ul>
-            </div>
-        </div>
-    </div> --}}
+    
     <div class="soft_skill">
         <div class="front-end">
            
-            <ul class="">
+            <ul class="mon_candidature">
                <img src="{{ asset('images/image.png') }}" alt="">
             </ul>
         </div>
         <div class="back-end">
+            <h1>SOFT SKILL</h1>
             <ul class="skills-list">
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Communication</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Travail d'équipe</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Résolution de problèmes</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Gestion du temps</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Adaptabilité</li>
-                <li><img src="{{ asset('images/rouge.svg') }}" alt="Icon"> Esprit critique</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
+                <li><img src="{{ asset('images/rouge.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consect</li>
             </ul>
         </div>
     </div>
@@ -258,33 +282,41 @@
     </div> --}}
     <div>
     <div class="A-container">
+    
         <div class="front-end">
-            <h2>Compétences Techniques</h2>
             <ul class="skills-list">
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Programmation</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Gestion de base de données</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Sécurité informatique</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Réseaux</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Cloud Computing</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Développement Web</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <h1>FRONT-END</h1>
             </ul>
         </div>
-        <div class="back-end">
+        <div class="back-ends">
+            <h1>BACK-END</h1>
             <ul class="skills-list">
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Communication</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Travail d'équipe</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Résolution de problèmes</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Gestion du temps</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Adaptabilité</li>
-                <li><img src="{{ asset('images/blanc.svg') }}" alt="Icon"> Esprit critique</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
+                <li><img src="{{ asset('images/blanc.svg') }}" style="height: 45px;" alt="Icon">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</li>
             </ul>
-            <h2>Compétences Douces</h2>
         </div>
     </div>
   
-
-    <div c >
-
+    <div class="pre-requis">
+        <h1>PRE-REQUIS & DEBOUCHÉ</h1>
+        <p class="paragraphe">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam 
+            reprehenderit at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi aLorem ipsum
+             dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit
+             at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi a..Lorem ipsum dolor, sit amet 
+            consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi
+             impedit veniam placeat nobis illum minus delectus itaque modi a. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+             Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi impedit veniam placeat nobis illum
+             minus delectus itaque modi a.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab</p>
     </div>
 
 </body>
