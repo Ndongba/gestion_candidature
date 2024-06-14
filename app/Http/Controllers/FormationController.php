@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class FormationController extends Controller
 {
 
-    public function Detail(){
-        return view('detailformation');
+    public function Detail($id){
+        $formation=Formation::find($id);
+        return view('detailformation', compact('formation'));
     }
 
     //Ctte fonction c'est pour l'affichage des formations

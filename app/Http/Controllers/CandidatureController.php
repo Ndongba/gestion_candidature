@@ -2,18 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Candidature;
 use App\Models\User;
+use App\Models\Formation;
+use App\Models\Candidature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class CandidatureController extends Controller
 {
   
-    public function ajouter_candidature(){
+    public function ajouter_candidature($id){
+        $formation=Formation::find($id);
+       
 
-        return view('candidature');
-
+        return view('candidature', compact('formation'));
+    
     }
 
 
@@ -55,18 +58,17 @@ class CandidatureController extends Controller
 
                 Candidature::create($data); // Enregistrer le produit dans la base de données
 
-                return redirect()->back();
-               
-            }
+                return redirect()->route('afficher_candidature');
+            }   
        
 
             public function afficher_candidature(){
                 $candidat=auth()->id();
    
-                $user= Candidature::all()->where('user_id', $candidat);
+                $candidatures = Candidature::where('user_id', $candidat)->get();
                
 
-                return view('affiche_candidature', compact('user'));
+                return view('affiche_candidature', compact('candidatures'));
                 
                 
             }

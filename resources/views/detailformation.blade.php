@@ -361,14 +361,14 @@ footer p {
         </nav>
     </header>
     <div class="row">
-        <div class="text">Texte à gauche</div>
-        <button class="button">Bouton</button>
+        <div class="text">{{ $formation->libelle }}</div>
+        <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="button">Bouton</button></a>
     </div>
     
     <div class="soft_skill">
         <div class="front-end">
             <ul class="mon_candidature">
-               <img src="{{ asset('images/image.png') }}" alt="">
+               <img src="{{ asset('storage/'.$formation->image) }}" alt="">
             </ul>
         </div>
         <div class="back-end">
@@ -396,7 +396,9 @@ footer p {
     <div class="description">
         <h1>DESCRIPTION</h1>
         <div class="description-row" col="8">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam 
+
+            {{ $formation->description }}
+            {{-- Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam 
             reprehenderit at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi aLorem ipsum
             dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit
             at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi a..Lorem ipsum dolor, sit amet 
@@ -411,7 +413,7 @@ footer p {
             delectus itaque modi a.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam
             reprehenderit at unde rerum animi impedit veniam placeat nobis illum minus delectus itaque modi a.Lorem ipsum dolor, sit amet
             consectetur adipisicing elit. Dignissimos tempora, illo eveniet ab dolorem quisquam reprehenderit at unde rerum animi impedit 
-            veniam placeat nobis illum minus delectus itaque modi a.
+            veniam placeat nobis illum minus delectus itaque modi a. --}}
         </div>
         <div col="2" >
 
@@ -420,7 +422,7 @@ footer p {
 
     <div class="competence" >
         <h1>DUREE DE LA FORMATION</h1>
-        <p>9 mois: Du 01/01/2024 au 01/09/2024</p>
+        <p>9 mois: Du {{ $formation->date_debut }} au {{ $formation->date_fin }}</p>
     </div>
     {{-- <div class="c-container">
         <h1>COMPETENCES VISÉES</h1>

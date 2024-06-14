@@ -51,7 +51,7 @@
                     <h2>{{ $formation->libelle }}</h2>
                     <p>Date de début de la formation: {{ \Carbon\Carbon::parse($formation->date_debut)->format('d/m/Y') }}</p>
                     <p>Date limite de candidature: {{ \Carbon\Carbon::parse($formation->date_fin_appel)->format('d/m/Y') }}</p>
-                    <button>Voir plus</button>
+                   <a href="{{ url('detail/'.$formation->id)}}"> <button>Voir plus</button></a>
                     <form action="{{ url('formations/' . $formation->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')

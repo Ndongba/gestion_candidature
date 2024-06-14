@@ -12,7 +12,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('detail',[FormationController::class ,'Detail']);
+Route::get('detail/{id}',[FormationController::class ,'Detail']);
 
 
 Route::controller(FormationController::class)->group(function () {
@@ -40,9 +40,9 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(CandidatureController::class)->group(function () {
 
-    Route::get('candidature', 'ajouter_candidature')->name('candidature');
+    Route::get('candidature/post/{id}', 'ajouter_candidature')->name('candidature');
     Route::post('candidature','traitement_candidature');
-    Route::get('affiche_candidature','afficher_candidature');
+    Route::get('affiche_candidature','afficher_candidature')->name('afficher_candidature');
     
 });
 // Routes pour l'administration
