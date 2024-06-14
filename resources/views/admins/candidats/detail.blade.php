@@ -30,10 +30,11 @@
         <div class="mb-4">
             <label for="etat" class="block text-gray-700">Changer l'état :</label>
             <select name="etat" id="etat" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm">
-                <option value="en_evaluation" {{ $candidature->etat == 'en_evaluation' ? 'selected' : '' }}>En évaluation</option>
-                <option value="en_attente" {{ $candidature->etat == 'en_attente' ? 'selected' : '' }}>En attente</option>
-                <option value="accepter" {{ $candidature->etat == 'accepter' ? 'selected' : '' }}>Accepté</option>
-                <option value="refuser" {{ $candidature->etat == 'refuser' ? 'selected' : '' }}>Refusé</option>
+               @foreach (['en_evaluation' => 'En évaluation', 'en_attente' => 'En attente', 'accepter' => 'Accepté', 'refuser' => 'Refusé'] as $value => $label)
+            <option value="{{ $value }}" {{ $candidature->etat == $value ? 'selected' : '' }}>
+                {{ $label }}
+            </option>
+        @endforeach
             </select>
         </div>
 

@@ -1,39 +1,23 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Affiche Candidature</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
-  <body>
-   
-    <div class="row">
-    <div>
-            
-            <title>{{ $user->prenom}}</title>
-            <title>{{ $user->nom}}</title>
-        </div>
-        <div class="infos">
-            <div>
-                <h4>Adresse</h4>
-                <p>Adresse: Dakar plateau</p>
-                <p>Age: 25 ans</p>
-                <p>Niveau d'étude:Licence 3</p>
-            </div>
-            <div>
-                <h4>Contact</h4>
-                <p>{{ $user->telephone}}</p>
-                <p>{{ $user->email}}</p>
-            </div>
-            </div>
-        
-            <h2>Status:{{ $data->status}}</h2>
-            <h3>Biographie</h3>
-            <p> {{ $data->biographie}}</p>
-            <h3>Motivation</h3>
-            <p>{{ $data->motivation}}</p>
-       
-    </div>
-    </body>
-</html>
+<x-candidat>
+  <div class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold text-center mb-8">Liste des Candidatures</h1>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          @foreach ($candidatures as $candidature)
+              <div class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-200">
+                  <h2 class="text-xl font-semibold mb-2">Formation ID: {{ $candidature->formation_id }}</h2>
+                  <p class="text-gray-700 mb-4"><strong>Biographie:</strong> {{ $candidature->biographie }}</p>
+                  <p class="text-gray-700 mb-4"><strong>Motivation:</strong> {{ $candidature->motivation }}</p>
+                  <p class="text-gray-700 mb-4"><strong>État:</strong> {{ ucfirst($candidature->etat) }}</p>
+                  @if($candidature->cv)
+                      <p class="text-blue-500 mb-4">
+                          <a href="{{ asset('storage/cv/' . $candidature->cv) }}" target="_blank" class="hover:underline">Télécharger CV</a>
+                      </p>
+                  @else
+                      <p class="text-red-500 mb-4">CV: Non disponible</p>
+                  @endif
+              </div>
+          @endforeach
+      </div>
+  </div>
+</x-candidat> 

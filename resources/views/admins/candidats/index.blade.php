@@ -5,45 +5,7 @@
 
     <!-- Content -->
     <div class="">
-        <h2 class="text-2xl mt-10 font-bold mb-6">Liste des Candidatures</h2>
-        <table class="min-w-full bg-white rounded-lg">
-            <thead class=" text-black">
-                <tr>
-                    <th class="px-4 py-2 text-left">Nom</th>
-                    <th class="px-4 py-2 text-left">Prénom</th>
-                    <th class="px-4 py-2 text-left">Email</th>
-                    <th class="px-4 py-2 text-left">Téléphone</th>
-                    <th class="px-4 py-2 text-left">Biographie</th>
-                    <th class="px-4 py-2 text-left">Etat</th>
-                    <th class="px-4 py-2 text-left">Motivation</th>
-                    <th class="px-4 py-2 text-center">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($candidatures as $candidature)
-                    <tr class="hover:bg-gray-100 transition-colors duration-200">
-                        <td class="border-t px-4 py-2">{{ $candidature->user->nom }}</td>
-                        <td class="border-t px-4 py-2">{{ $candidature->user->prenom }}</td>
-                        <td class="border-t px-4 py-2">{{ $candidature->user->email }}</td>
-                        <td class="border-t px-4 py-2">{{ $candidature->user->telephone }}</td>
-                        <td class="border-t px-4 py-2">{{ $candidature->biographie }}</td>
-                        <td class="border-t px-4 py-2">{{ $candidature->motivation }}</td>
-                        <td class="border-t px-4 py-2">{{ $candidature->etat }}</td>
-                        {{-- <td class="border-t px-4 py-2">
-                                            <i class="fas fa-shopping-cart text-green-500"></i> : {{ $candidature->commandes->count() }}<br>
-                                            <i class="fas fa-money-bill-wave text-green-500"></i> : {{ number_format($candidature->commandes->where('etat_commande', 'valide')->sum('montant_total'), 0, ',', '') }} XOF
-                                        </td>
-                                        <td class="border-t px-4 py-2">{{ $candidature->created_at->format('H:i - d/m/Y') }}</td>
-                                        <td class="border-t text-center px-4 py-2">
-                                            <a href="{{ route('admin.candidatures.commandes', $candidature) }}" class="text-blue-500 hover:text-blue-700">
-                                                <i class="fas fa-eye text-red-600"></i>
-                                            </a>
-                                        </td> --}}
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-
+    
 
     <!-- Statistiques des candidats -->
 
@@ -56,7 +18,7 @@
         </div>
         <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
             <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Candidats en attente</h3>
+                <h3 class="text-sm tracking-wider">Ca   ndidats en attente</h3>
                 <p class="text-3xl bold py-2">{{ $formation->candidatures->where('etat', 'en_attente')->count() }}</p>
             </div>
         </div>
@@ -79,7 +41,7 @@
                 <p class="text-3xl bold py-2">{{ $formation->candidatures->count() }}</p>
             </div>
         </div>
->>>>>>> 4197a0226b4ca8b5e6925a0485da1115a536a22f
+
     </div>
    
 
@@ -146,7 +108,7 @@
 
                                     {{-- Icon Telecharger  --}}
 
-                                    <a href=""><svg width="13" height="15" viewBox="0 0 13 15"
+                                    <a href="{{ asset('storage/cv/' . $candidature->cv) }}"><svg width="13" height="15" viewBox="0 0 13 15"
                                             fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M10.8333 12.9572C11.1313 12.9572 11.375 12.7561 11.375 12.5104V4.468H8.66667C8.06745 4.468 7.58333 4.06867 7.58333 3.5744V1.3404H2.16667C1.86875 1.3404 1.625 1.54146 1.625 1.7872V12.5104C1.625 12.7561 1.86875 12.9572 2.16667 12.9572H10.8333ZM0 1.7872C0 0.801448 0.971615 0 2.16667 0H7.76953C8.34505 0 8.89688 0.187098 9.30313 0.522197L12.3669 3.04941C12.7732 3.38451 13 3.83969 13 4.31441V12.5104C13 13.4962 12.0284 14.2976 10.8333 14.2976H2.16667C0.971615 14.2976 0 13.4962 0 12.5104V1.7872Z"

@@ -8,11 +8,11 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\FormationController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
-Route::get('detail',[FormationController::class ,'Detail']);
+Route::get('detail/{id}',[FormationController::class ,'Detail']);
 
 
 Route::controller(FormationController::class)->group(function () {
@@ -40,9 +40,9 @@ Route::controller(AuthController::class)->group(function () {
 
 Route::controller(CandidatureController::class)->group(function () {
 
-    Route::get('candidature', 'ajouter_candidature')->name('candidature');
+    Route::get('candidature/post/{id}', 'ajouter_candidature')->name('candidature');
     Route::post('candidature','traitement_candidature');
-    Route::get('affiche_candidature','afficher_candidature');
+    Route::get('affiche_candidature','afficher_candidature')->name('afficher_candidature');
     
 });
 // Routes pour l'administration
@@ -51,6 +51,21 @@ Route::controller(AdminController::class)->middleware('personnel')->prefix('admi
     Route::get('candidats/', 'listeCandidats')->name('candidats.admin');
     Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
     Route::get('/formation/{formation}/candidature/{candidature}',  'detailCandidat')->name('candidature.detail');
-    // Valide une commande
-   
+//   validation
+    Route::patch('/formation/{formation}/candidature/{candidature}/update-status', 'updateStatus')
+    ->name('candidature.updateStatus');   
 });
+
+
+//Route pour afficher les formations pour les candidats
+Route::get('formation', [FormationController::class, 'index'])->name('formations');
+
+//Route qui permet d'ajouter une formation
+Route::get ('/ajoutformation', [FormationController::class, 'ajoutformation'])->name('ajouter');
+Route::post('/candidats/formations', [FormationController::class, 'store'])->name('formations.store');
+
+//Cette route va nous peemettre de gerer la suppression d'une formation
+Route::delete('formations/{id}', [FormationController::class, 'destroy'])->name('Suppression');
+
+    // Valide
+    

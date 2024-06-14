@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Formation;
 use App\Models\Candidature;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -23,11 +24,12 @@ class AdminController extends Controller
     public function detailCandidat($formationId, $candidatureId)
     {
         // Récupérer la candidature en fonction de son ID
+        $candidatures = Candidature::all();
         $candidature = Candidature::findOrFail($candidatureId);
         $formation = Formation::findOrFail($formationId);
 
         // Passer les données à la vue candidature.show.blade.php
-        return view('admins.candidats.detail', compact('formation', 'candidature'));
+        return view('admins.candidats.detail', compact('formation', 'candidatures', 'candidature'));
     }
 
     public function updateStatus(Request $request, $formationId, $candidatureId)
@@ -41,6 +43,11 @@ class AdminController extends Controller
         $candidature = Candidature::findOrFail($candidatureId);
         $candidature->etat = $request->input('etat');
         $candidature->save();
+        Notification::create([
+            'message' => "L'état de votre candidature a été mis à jour à : " . $request->input('etat'),
+            'user_id' => $candidature->user_id,
+        ]);
+
 
         return redirect()->route('candidature.detail', ['formation' => $formationId, 'candidature' => $candidatureId])
                          ->with('success', 'État de la candidature mis à jour avec succès.');

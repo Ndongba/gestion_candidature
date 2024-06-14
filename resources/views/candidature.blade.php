@@ -8,13 +8,10 @@
 </head>
 <body>
     
-    <form action="candidature" method="POST" class="container" enctype="multipart/form-data">
+    <form action="{{url('candidature')}}" method="POST" class="container" enctype="multipart/form-data">
         @csrf
-        @auth 
-            <h1>Formulaire de Candidature</h1>
-
-
-        @endauth
+       
+    <h1>{{ $formation->libelle }}</h1>
     <h1>Formulaire de Candidature</h1>
     <!-- <div class="d-inline-flex p-2">
         <div class="mb-3 row-col-12" >
@@ -33,7 +30,7 @@
         </div>
         </div> -->
         <div class="mb-3">
-            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="formation_id" value="1">
+            <input type="hidden" class="form-control" id="exampleFormControlInput1" name="formation_id" value="{{ $formation->id }}">
         </div> 
         <div class="mb-3">
             <input type="hidden" class="form-control" id="exampleFormControlInput1" name="etat">
