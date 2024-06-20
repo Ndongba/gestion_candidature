@@ -119,7 +119,7 @@
 
                     <div class="phase">
                         <div class="phase-text"> {{$formation->libelle}} </div>
-                        <div class="phase-icon">ℹ️</div> <!-- Icone de détail -->
+                        <div class="phase-icon"><a href="{{ route('candidats.liste.admin', $formation) }}">Voir les candidats</a></div> <!-- Icone de détail -->
                     </div>
                     <div class="phase">
                         <div class="phase-text"> {{$formation->nombre_place}} Apprenants </div>

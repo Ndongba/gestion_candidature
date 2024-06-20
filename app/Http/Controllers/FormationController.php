@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class FormationController extends Controller
 {
 
+
     public function Detail($id){
         $formation=Formation::find($id);
         return view('detailformation', compact('formation'));
@@ -24,10 +25,14 @@ class FormationController extends Controller
         return view('formation', compact('formations'));
     }
 
-    public function ajoutformation()
-    {
-        return view('ajoutformation');
+
+    public function afficherFormation(){
+        $formations = Formation::all();
+        return view('admins.formations.listeformation', compact('formations'));
     }
+    
+ 
+
 
     public function store(Request $request)
 {
@@ -72,10 +77,7 @@ public function destroy($id)
     return redirect()->route('formations')->with('status', 'La formation a été supprimé avec succès.');
 }
 
-public function afficherFormation(){
-    $formations = Formation::all();
-    return view('admins.formations.listeformation', compact('formations'));
-}
+
 
 public function modifierFormation($id){
     $formations = Formation::find($id);
