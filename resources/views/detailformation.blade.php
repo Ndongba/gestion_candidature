@@ -398,7 +398,7 @@ footer p {
         <div class="front-end">
            
             <ul class="">
-               <img src="{{ asset('images/image.png') }}" alt="">
+               <img src="{{ asset('istroge/') }}" alt="">
             </ul>
         </div>
         <div class="back-end">

@@ -12,9 +12,13 @@ use App\Notifications\CandidatureStatusUpdated;
 
 class AdminController extends Controller
 {
-    //  ListeCandidates
+    //  Liste des tous les Candidates dans les different candidatures
+    public function listeDesCandidats(){
+        $formation = Formation::all();
+        $candidatures = Candidature::all();
+        return view('admins.candidats.liste', compact('candidatures','formation'));
+    }
 
-    
 
  
     public function listeCandidats($id)

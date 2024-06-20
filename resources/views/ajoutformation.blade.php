@@ -4,7 +4,6 @@
     <x-layout>
         <style>
             #contact-form {
-              display: none;
               position: fixed;
               top: 50%;
               left: 50%;
@@ -25,36 +24,7 @@
                 color: #333;
             }
     
-            #close-btn {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                background: none;
-                border: none;
-                font-size: 20px;
-                cursor: pointer;
-                color: #333;
-            }
-    
-            #open-popup-btn {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                background-color: #3498db;
-                color: #fff;
-                border: none;
-                border-radius: 50%;
-                padding: 20px;
-                cursor: pointer;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            }
-    
-            #open-popup-btn i {
-                font-size: 24px;
-            }
+         
     
             .btn-submit {
                 background-color: #ce0033;
@@ -133,32 +103,9 @@
             </form>
         </div>
     
-        <button id="open-popup-btn">
-            <i id="popup-icon" class="fas fa-comment"> ajout</i>
-        </button>
+       
     
-        <script>
-            const openPopupBtn = document.getElementById('open-popup-btn');
-            const contactForm = document.getElementById('contact-form');
-            const popupIcon = document.getElementById('popup-icon');
-    
-            openPopupBtn.addEventListener('click', function () {
-                contactForm.style.display = contactForm.style.display === 'block' ? 'none' : 'block';
-                popupIcon.classList.toggle('fa-comment-alt');
-                popupIcon.classList.toggle('fa-comment');
-            });
-    
-            function closeForm() {
-                contactForm.style.display = 'none';
-                popupIcon.classList.remove('fa-comment');
-                popupIcon.classList.add('fa-comment-alt');
-            }
-    
-            contactForm.addEventListener('click', function (e) {
-                if (e.target === this) {
-                    closeForm();
-                }
-            });
-        </script>
+     
+        
     </x-layout>
     

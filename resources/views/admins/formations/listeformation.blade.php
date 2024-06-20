@@ -108,7 +108,7 @@
     </div>
     <div class="row">
         <p>Liste des formations</p>
-        <button class="button"><strong>Ajouter</strong></button>
+        <a href="{{ route('ajouter') }}"><button class="button"><strong>Ajouter</strong></button></a>
     </div>
 
     <div class="container">
@@ -129,6 +129,11 @@
                         <div>Date de début : {{$formation->date_debut}} </div>
                         <div>Date de fin : {{$formation->date_fin}} </div>
                     </div>
+                    <form action="{{ url('formations/' . $formation->id) }}" method="POST" class="d-inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="icon-btn  text-red-600" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')"><i class="fas fa-trash-alt"></i></button>
+                    </form>   
                                             
                     @endforeach
                 </div>

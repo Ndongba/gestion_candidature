@@ -10,16 +10,9 @@ use App\Http\Controllers\FormationController;
 use App\Http\Controllers\CandidatureController;
 
 Route::get('/', function () {
-    //return view('welcome');
+    return view('welcome');
     
-        $data = [
-            'title' => 'Hi student I hope you like the course',
-            'content' => 'This laravel course was created with a lot of love and dedication for you'
-        ];
-    
-        Mail::send('mail.welcome-email', $data, function($message){
-            $message->to('souleymane9700@gmail.com', 'jul jj')->subject('Hello student how are you?');
-        });
+       
     });
 
 Route::get('detail/{id}',[FormationController::class ,'Detail']);
@@ -56,9 +49,9 @@ Route::controller(CandidatureController::class)->group(function () {
     
 });
 // Routes pour l'administration
-Route::controller(AdminController::class)->prefix('admin')->group(function () {
-    // Affiche le tableau de bord de l'admin
-    Route::get('candidats/', 'listeCandidats')->name('candidats.admin');
+    Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
+        // Affiche le tableau de bord de l'admin
+    Route::get('candidats/', 'listeDesCandidats')->name('candidats.admin');
     Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
     Route::get('/formation/{formation}/candidature/{candidature}',  'detailCandidat')->name('candidature.detail');
 //   validation
@@ -71,8 +64,8 @@ Route::controller(AdminController::class)->prefix('admin')->group(function () {
 Route::get('formation', [FormationController::class, 'index'])->name('formations');
 
 //Route qui permet d'ajouter une formation
-Route::get ('/ajoutformation', [FormationController::class, 'ajoutformation'])->name('ajouter');
-Route::post('/candidats/formations', [FormationController::class, 'store'])->name('formations.store');
+Route::get ('/ajoutformation', [FormationController::class, 'ajoutformation'])->middleware('personnel')->name('ajouter');
+Route::post('/candidats/formations', [FormationController::class, 'store'])->middleware('personnel')->name('formations.store');
 
 //Cette route va nous peemettre de gerer la suppression d'une formation
 Route::delete('formations/{id}', [FormationController::class, 'destroy'])->name('Suppression');

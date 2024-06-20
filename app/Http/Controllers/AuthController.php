@@ -42,8 +42,7 @@ class AuthController extends Controller
 
 
        public function login(){
-        $userEmail = 'souleymane9700@gmail.com';
-        Mail::to($userEmail)->send(new WelcomeMail());
+        
 
         return view('authentifications.login');
 
@@ -62,9 +61,9 @@ class AuthController extends Controller
                if (Auth::user()->role === 'personnel') {
                    return redirect('admin/candidats')->with('success', 'Connexion réussie en tant qu\'admin');
                } else if (Auth::user()->role === 'candidat') {
-                   return redirect('/')->with('success', 'Connexion réussie en tant que candidat');
+                   return redirect('/formation')->with('success', 'Connexion réussie en tant que candidat');
                } else {
-                   return redirect('/')->with('success', 'Connexion réussie');
+                   return redirect('/formation')->with('success', 'Connexion réussie');
                }
            } else {
                // Les informations d'identification sont incorrectes

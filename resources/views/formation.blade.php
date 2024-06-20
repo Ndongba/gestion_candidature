@@ -52,11 +52,7 @@
                     <p>Date de début de la formation: {{ \Carbon\Carbon::parse($formation->date_debut)->format('d/m/Y') }}</p>
                     <p>Date limite de candidature: {{ \Carbon\Carbon::parse($formation->date_fin_appel)->format('d/m/Y') }}</p>
                    <a href="{{ url('detail/'.$formation->id)}}"> <button>Voir plus</button></a>
-                    <form action="{{ url('formations/' . $formation->id) }}" method="POST" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="icon-btn icon-btn-danger" title="Supprimer" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette formation ?')"><i class="fas fa-trash-alt"></i></button>
-                    </form>                
+                               
                 </div>
                 @endforeach
             </div>

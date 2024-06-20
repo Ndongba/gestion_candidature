@@ -22,7 +22,7 @@ class FormationController extends Controller
         $formations = Formation::all();
 
         // Passer les formations à la vue
-        return view('formation', compact('formations'));
+        return view('afficherFormation', compact('formations'));
     }
 
 
@@ -30,7 +30,12 @@ class FormationController extends Controller
         $formations = Formation::all();
         return view('admins.formations.listeformation', compact('formations'));
     }
-    
+    //ajoutformation
+    public function ajoutformation(){
+        $formations = Formation::all();
+
+        return view('ajoutformation', compact('formations'));
+    }
  
 
 
@@ -63,7 +68,7 @@ class FormationController extends Controller
         'nombre_place' => $request->nombre_place,
     ]);
 
-    return redirect()->route('formations')->with('success', 'Formation ajoutée avec succès!');
+    return redirect()->route('afficherFormation')->with('success', 'Formation ajoutée avec succès!');
 }
 
 
