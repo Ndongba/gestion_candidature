@@ -34,19 +34,50 @@ return [
     |            "failover", "roundrobin"
     |
     */
+    
 
-    'mailers' => [
+   'mailers' => [
+        // 'smtp' => [
+        //     'transport' => 'smtp',
+        //     'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+        //     'port' => env('MAIL_PORT', 587),
+        //     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+        //     'username' => env('MAIL_USERNAME'),
+        //     'password' => env('MAIL_PASSWORD'),
+        //     'timeout' => null,
+        //     'auth_mode' => null,
+        //     'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+        // ],
 
-        'smtp' => [
+     'mailgun' => [
+    'transport' => 'mailgun',
+    // 'client' => [
+    //     'timeout' => 5,
+    // ],
+],
+'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', '127.0.0.1'),
-            'port' => env('MAIL_PORT', 2525),
-            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+            'port' => env('MAIL_PORT', 465),
+            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
+            'local_domain' => env('MAIL_EHLO_DOMAIN'),
+        ],
+        // 'mailgun' => [
+        //     'transport' => 'mailgun',
+        //     'domain' => env('MAILGUN_DOMAIN'),
+        //     'secret' => env('MAILGUN_SECRET'),
+        //     'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+        // ],
+
+        'mailgun' => [
+            'transport' => 'mailgun',
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
         ],
 
         'ses' => [
@@ -108,9 +139,15 @@ return [
     |
     */
 
+    'driver' => env('MAIL_DRIVER', 'smtp'),
+'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+'port' => env('MAIL_PORT', 587),
+
+
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'souleymane9700@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Hello  B_DigiTech'),
     ],
+
 
 ];

@@ -1,16 +1,26 @@
 <?php
 
-use App\Http\Controllers\CandidatureController;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\FormationController;
+use App\Http\Controllers\CandidatureController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    //return view('welcome');
+    
+        $data = [
+            'title' => 'Hi student I hope you like the course',
+            'content' => 'This laravel course was created with a lot of love and dedication for you'
+        ];
+    
+        Mail::send('mail.welcome-email', $data, function($message){
+            $message->to('souleymane9700@gmail.com', 'jul jj')->subject('Hello student how are you?');
+        });
+    });
 
 Route::get('detail/{id}',[FormationController::class ,'Detail']);
 
@@ -46,7 +56,7 @@ Route::controller(CandidatureController::class)->group(function () {
     
 });
 // Routes pour l'administration
-Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
     // Affiche le tableau de bord de l'admin
     Route::get('candidats/', 'listeCandidats')->name('candidats.admin');
     Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');

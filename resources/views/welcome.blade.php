@@ -60,8 +60,10 @@
                             </nav>
                         @endif
                     </header>
+                    <h2>Bienvenue sur notre site !</h2>
+                    <p>Merci de vous être inscrit. Nous sommes ravis de vous accueillir parmi nous.</p>
 
-                    <main class="mt-6">
+                    {{-- <main class="mt-6"> --}}
                         <div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
                             <a
                                 href="https://laravel.com/docs"

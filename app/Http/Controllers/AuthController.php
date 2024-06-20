@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\AuthController;
 
 class AuthController extends Controller
@@ -39,7 +42,12 @@ class AuthController extends Controller
 
 
        public function login(){
+        $userEmail = 'souleymane9700@gmail.com';
+        Mail::to($userEmail)->send(new WelcomeMail());
+
         return view('authentifications.login');
+
+
        }
     
        public function loginSave(Request $request)
