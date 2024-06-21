@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mise en page avec soft skills</title>
+<x-candidat>
+
     <style>
         body {
             font-family: 'Nunito Sans', Arial, sans-serif;
@@ -231,8 +227,9 @@ header ul li a {
             text-align: center;
         }
         .back-end{
+          
             height: 545px;
-            width: 430px;
+            width: 800px;
             background-color: #FFF2F2;
             border-top-right-radius: 100px;
         }
@@ -256,10 +253,12 @@ header ul li a {
             margin-top: 90px;
         }
         .skills-list li {
+          
+            padding-right: 20px;
             display: flex;
             align-items: center;
             /* background-color: #f1f1f1; */
-            margin: 5px 0;
+            /* margin: 5px 0; */
             padding: 10px;
             border-radius: 5px;
         }
@@ -372,34 +371,16 @@ footer p {
     justify-content: space-between;
 }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">
-                    <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png" alt="Logo">
-                </a>
-            </div>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Formations</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
     <div class="row">
         <div class="text">{{ $formation->libelle }}</div>
         {{-- <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="button">Bouton</button></a> --}}
     </div>
     
-    <div class="soft_skill">
-        <div class="front-end">
+    <div class="soft_skill col-12">
+        <div class="front-end w-2/4 col-5">
            
-            <ul class="">
-               <img src="{{ asset('istroge/') }}" alt="">
-            </ul>
+               <img src="{{ asset('storage/'.$formation->image ) }}" alt="">
         </div>
         <div class="back-end">
             <h1>SOFT SKILL</h1>
@@ -531,38 +512,5 @@ footer p {
             </div>
         </div>
     </div>
+</x-candidat>
 
-    <footer>
-        <div class="log">
-            <a href="#">
-                <img src="#" alt="Logo">
-            </a>
-
-
-            <nav class="foot">
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Formations</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-
-
-
-        <br><br><br>
-
-        <div class="social-icons">
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p class="copy">Copyright &copy; (DN) 2024</p>
-
-    </footer>
-
-
-</body>
-</html>

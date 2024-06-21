@@ -48,59 +48,58 @@
         </style>
     
         <div id="contact-form">
-            <button id="close-btn" onclick="closeForm()">X</button>
            <br>
-            <form action="{{ route('formations.store') }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="titre">Titre</label>
-                        <input type="text" class="form-control" id="titre" name="titre" placeholder="Titre">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="nombre_place">Nombre place</label>
-                        <input type="number" class="form-control" id="nombre_place" name="nombre_place" placeholder="Nombre de places">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="date_debut">Date de début</label>
-                        <input type="date" class="form-control" id="date_debut" name="date_debut">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="date_fin">Date de fin</label>
-                        <input type="date" class="form-control" id="date_fin" name="date_fin">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="date_fin_appel">Date fermeture</label>
-                        <input type="date" class="form-control" id="date_fin_appel" name="date_fin_appel">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="date_debut_appel">Date ouverture</label>
-                        <input type="date" class="form-control" id="date_debut_appel" name="date_debut_appel">
-                    </div>
-                </div>
-               <div class="form-row">
+           <form action="{{ route('formations.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-row">
                 <div class="form-group col-md-6">
-                    <label for="image">Image</label>
-                    <input type="file" class="form-control-file" id="image" name="image">
+                    <label for="titre">Titre</label>
+                    <input type="text" class="form-control" id="titre" name="libelle" placeholder="Titre">
                 </div>
-                <div class="form-group">
-                    <label for="etat">Statut</label>
-                    <select class="form-control" id="etat" name="etat">
-                        <option value="ouvert">Ouvert</option>
-                        <option value="fermer">Fermer</option>
-                    </select>
+                <div class="form-group col-md-6">
+                    <label for="nombre_place">Nombre place</label>
+                    <input type="number" class="form-control" id="nombre_place" name="nombre_place" placeholder="Nombre de places">
                 </div>
-               </div>
-                <button type="submit" class="btn btn-submit ">Ajouter</button>
-            </form>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="date_debut">Date de dÃ©but</label>
+                    <input type="date" class="form-control" id="date_debut" name="date_debut">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="date_fin">Date de fin</label>
+                    <input type="date" class="form-control" id="date_fin" name="date_fin">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="date_fin_appel">Date fermeture</label>
+                    <input type="date" class="form-control" id="date_fin_appel" name="date_fin_appel">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="date_debut_appel">Date ouverture</label>
+                    <input type="date" class="form-control" id="date_debut_appel" name="date_debut_appel">
+                </div>
+            </div>
+           <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="image">Image</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <div class="form-group">
+                <label for="etat">Statut</label>
+                <select class="form-control" id="etat" name="etat">
+                    <option value="ouvert">Ouvert</option>
+                    <option value="fermer">Fermer</option>
+                </select>
+            </div>
+           </div>
+            <button type="submit" class="btn btn-submit ">Ajouter</button>
+        </form>
         </div>
     
        

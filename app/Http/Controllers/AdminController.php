@@ -54,7 +54,7 @@ class AdminController extends Controller
         $user = User::find($candidature->user_id);
 
         // Envoyer une notification via Laravel
-        Notification::send($user, new CandidatureStatusUpdated($candidature));
+        // Notification::send($user, new CandidatureStatusUpdated($candidature));
 
 
         

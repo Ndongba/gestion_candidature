@@ -73,10 +73,10 @@
                 <thead class="text-black">
                     <tr>
                         <th class="px-4 py-2 text-left">Candidat</th>
+                        <th class="px-4 py-2 text-left">Nom</th>
+                        <th class="px-4 py-2 text-left">Prenom</th>
                         <th class="px-4 py-2 text-left">Email</th>
                         <th class="px-4 py-2 text-left">Téléphone</th>
-                        <th class="px-4 py-2 text-left">Biographie</th>
-                        <th class="px-4 py-2 text-left">Motivation</th>
                         <th class="px-4 py-2 text-left">État</th>
                         <th class="px-4 py-2 text-center">Actions</th>
                     </tr>
@@ -87,12 +87,12 @@
                             <td class="border-t px-4 py-2 flex items-center">
                                 <img src="https://w7.pngwing.com/pngs/866/254/png-transparent-naruto-uzumaki-sasuke-uchiha-naruto-head-sasuke-uchiha-cartoon-thumbnail.png"
                                     alt="Avatar de" class="w-10 h-10 rounded-full mr-3">
-                                <span>{{ $candidature->user->prenom }} {{ $candidature->user->nom }}</span>
                             </td>
+                            <td class="border-t px-4 py-5">{{ $candidature->user->nom }}</td>
+                            <td class="border-t px-4 py-5">{{ $candidature->user->prenom }}</td>
                             <td class="border-t px-4 py-5">{{ $candidature->user->email }}</td>
                             <td class="border-t px-4 py-5">{{ $candidature->user->telephone }}</td>
-                            <td class="border-t px-4 py-5">{{ $candidature->biographie }}</td>
-                            <td class="border-t px-4 py-5">{{ $candidature->motivation }}</td>
+                           
                             <td class="border-t px-4 py-5">{{ $candidature->etat }}</td>
                             <td class="border-t  px-5 py-1">
                                 <div class="flex">

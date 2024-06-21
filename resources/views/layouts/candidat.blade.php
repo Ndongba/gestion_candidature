@@ -1,95 +1,104 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tableau de Bord</title>
+    <title>Formations</title>
+    <link rel="stylesheet" href="{{ asset('css/formation.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+       <title>Tableau de Bord</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <style>
-        .hover-scale {
-            transition: transform 0.3s;
-        }
+    <link rel="stylesheet" href="{{ asset('css/formation.css') }}">
 
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
 
-        .sidebar {
-            transition: width 0.3s;
-        }
-
-        .sidebar:hover {
-            width: 250px;
-        }
-
-        .active {
-            background-color: #DB1313;
-            /* Couleur de fond pour l'élément actif */
-            color: #ffffff;
-            margin: 8px
-                /* Couleur de texte pour l'élément actif */
-        }
-
-        .active>span {
-            /* Couleur de fond pour l'élément actif */
-            color: #ffffff;
-            /* Couleur de texte pour l'élément actif */
-        }
-    </style>
-    <script>
-        function confirmAction(message, event) {
-            if (!confirm(message)) {
-                event.preventDefault();
-            }
-        }
-    </script>
 </head>
-
-<body class="bg-gray-100">
-
-    <!-- Sidebar -->
-    <div class="flex">
-        <!-- ACTVE MENU -->
-       
-
-        <!-- Main content -->
-        <div class=" flex-1">
-            <!-- Navbar -->
-            <div
-                class="bg-red-700 shadow-md py-8 right-0 w-100 mix-w-screen-xl rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
-                <div class="flex items-center">
-                </div>
-
-                <div class="flex items-center">
-                    @auth
-                    <span class="text-gray-800 mr-4">{{ Auth::user()->prenom }}</span>
-
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">
+                    <img src="#" alt="Logo">
+                </a>
+            </div>
+            <div class="flex items-center">
+                <ul>
+                    @if (!Auth::user())
                         
-                    @endauth
-                    <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
-                        class="w-10 h-10 rounded-full">
-                </div>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">À propos</a></li>
+                    <li><a href="{{route('formations')}}">Formations</a></li>
+                    <li><a href="#">Contact</a></li>
+
+                    @else
+                    <li><a href="{{route('formations')}}">Formations</a></li>
+                    <li><a href="{{route('afficher_candidature')}}">Mes candidatures</a></li>
+
+                    @endif
+
+                </ul>
             </div>
 
-
-
-            <!-- Content -->
-            <div class="pt-24 ml-64  mt- px-8">
-                <div class=" p-6 ">
-                    {{ $slot }}
-                </div>
+            <div class="flex items-center">
+                @auth
+                <span class="text-gray-800 mr-4">{{ Auth::user()->prenom }}</span>
+                <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
+                class="w-10 h-10 rounded-full">
+                    
+                @endauth
+              
             </div>
-        </div>
-    </div>
-    {{-- <div class="bg-white p-6 rounded-lg shadow-md">
-        {{ $slot }}
-    </div> --}}
+           
+        </nav>
+    </header>
 
-        <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
-</body>
+    <main>
+        {{$slot}}
+    </main>
 
-</html>
+    <br><br><br>
+    
+    
+        <footer>
+            <div class="log">
+                <a href="#">
+                    <img src="#" alt="Logo">
+                </a>
+    
+    
+                <nav class="foot">
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#">À propos</a></li>
+                        <li><a href="#">Formations</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+           
+    
+    
+            <br><br><br>
+    
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copy">Copyright &copy; (DN) 2024</p>
+    
+        </footer>
+    
+        <script>
+            function searchFormations() {
+                // Functionality to search formations
+            }
+        </script>
+    </body>
+    </html>
+    

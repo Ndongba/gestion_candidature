@@ -22,13 +22,13 @@ class FormationController extends Controller
         $formations = Formation::all();
 
         // Passer les formations à la vue
-        return view('afficherFormation', compact('formations'));
+        return view('formation', compact('formations'));
     }
 
 
     public function afficherFormation(){
         $formations = Formation::all();
-        return view('admins.formations.listeformation', compact('formations'));
+        return view('admins.formations.listeformations', compact('formations'));
     }
     //ajoutformation
     public function ajoutformation(){
@@ -42,13 +42,13 @@ class FormationController extends Controller
     public function store(Request $request)
 {
     $request->validate([
-        'titre' => 'required|string|max:255',
-        'date_debut_appel' => 'required|date',
-        'date_fin_appel' => 'required|date',
-        'image' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048', // Validation du fichier
-        'etat' => 'required|in:ouvert,fermer',
-        'date_debut' => 'required|date',
-        'date_fin' => 'required|date',
+        // 'libelle' => 'required|string|max:255',
+        // 'date_debut_appel' => 'required|date',
+        // 'date_fin_appel' => 'required|date',
+        // 'image' => 'required|file|mimes:jpeg,png,jpg,gif|max:2048', // Validation du fichier
+        // 'etat' => 'required|in:ouvert,fermer',
+        // 'date_debut' => 'required|date',
+        // 'date_fin' => 'required|date',
         
     ]);
 
@@ -57,7 +57,7 @@ class FormationController extends Controller
         $filePath = $file->store('uploads', 'public'); 
 
     Formation::create([
-        'libelle' => $request->titre,
+        'libelle' => $request->libelle,
         'date_debut_appel' => $request->date_debut_appel,
         'date_fin_appel' => $request->date_fin_appel,
         'image' => $filePath ?? null,
@@ -95,7 +95,7 @@ public function modifierFormationTraitement(Request $request){
     $formations->date_debut = $request->date_debut;
     $formations->date_fin = $request->date_fin;
     $formations->etat = $request->etat;
-    $formations->image = $request->image;
+    // $formations->image = $request->image;
     $formations->date_debut_appel = $request->date_debut_appel;
     $formations->date_fin_appel = $request->date_fin_appel;
 

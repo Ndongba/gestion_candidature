@@ -49,7 +49,7 @@ Route::controller(CandidatureController::class)->group(function () {
     
 });
 // Routes pour l'administration
-    Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
+Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
         // Affiche le tableau de bord de l'admin
     Route::get('candidats/', 'listeDesCandidats')->name('candidats.admin');
     Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
