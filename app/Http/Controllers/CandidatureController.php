@@ -7,6 +7,7 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\DecisionCandidature;
 
 class CandidatureController extends Controller
 {
@@ -15,7 +16,7 @@ class CandidatureController extends Controller
         $formation=Formation::find($id);
        
 
-        return view('candidature', compact('formation'));
+        return view('candidates.candidatures.candidature', compact('formation'));
     
     }
 
@@ -58,7 +59,7 @@ class CandidatureController extends Controller
 
                 Candidature::create($data); // Enregistrer le produit dans la base de données
 
-                return redirect()->route('afficher_candidature');
+                return redirect()->route('candidature.afficher');
             }   
        
 
@@ -68,13 +69,17 @@ class CandidatureController extends Controller
                 $candidatures = Candidature::where('user_id', $candidat)->get();
                
 
-                return view('affiche_candidature', compact('candidatures'));
+                return view('candidates.candidatures.affiche_candidature', compact('candidatures'));
                 
                 
             }
+
 
             public function detail_candidature(){
 
                 return view('detail_affiche_candidature');
             }
+
+
+
 }

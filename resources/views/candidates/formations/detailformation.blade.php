@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mise en page avec soft skills</title>
+<x-candidat>
+
     <style>
         body {
             font-family: 'Nunito Sans', Arial, sans-serif;
@@ -23,7 +19,7 @@ header nav {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
-    font-size: 25px;
+    font-size: 20px;
  
 }
 
@@ -34,15 +30,18 @@ header .logo img {
 header ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 60px;
+    font-weight: bolder;
     margin-right: 100px;
 }
 
 header ul li {
     margin: 0;
+    
 }
 
 header ul li a {
+  
     color: black;
     text-decoration: none;
 }
@@ -50,6 +49,32 @@ header ul li a {
 .logo {
     margin-left: 50px;
 }
+
+.btn {
+           background-color: #ce0033;
+           color: white;
+           padding: 15px 30px;
+           border: none;
+           border-radius: 50px;
+           font-size: 16px;
+           font-weight: bold;
+           cursor: pointer;
+           transition: background-color 0.3s ease, transform 0.2s ease;
+           box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+       }
+
+
+       .btn:hover {
+           background-color: #b0002b;
+           transform: translateY(-2px);
+       }
+
+
+       .btn:active {
+           background-color: #a30028;
+           transform: translateY(0);
+           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+       }
 
         .row {
             background-color: #ce0033;
@@ -202,8 +227,9 @@ header ul li a {
             text-align: center;
         }
         .back-end{
+          
             height: 545px;
-            width: 430px;
+            width: 800px;
             background-color: #FFF2F2;
             border-top-right-radius: 100px;
         }
@@ -227,10 +253,12 @@ header ul li a {
             margin-top: 90px;
         }
         .skills-list li {
+          
+            padding-right: 20px;
             display: flex;
             align-items: center;
             /* background-color: #f1f1f1; */
-            margin: 5px 0;
+            /* margin: 5px 0; */
             padding: 10px;
             border-radius: 5px;
         }
@@ -289,9 +317,9 @@ header ul li a {
         .skills-list{
             
         }
-        .footer {
+    .footer {
     background-color: black;
-    color: #fff;
+    color: #000000;
     padding: 1rem 0;
     text-align: center;
 }
@@ -343,33 +371,16 @@ footer p {
     justify-content: space-between;
 }
     </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="#">
-                    <img src="#" alt="Logo">
-                </a>
-            </div>
-            <ul>
-                <li><a href="#">Accueil</a></li>
-                <li><a href="#">À propos</a></li>
-                <li><a href="#">Formations</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+
     <div class="row">
         <div class="text">{{ $formation->libelle }}</div>
-        <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="button">Bouton</button></a>
+        {{-- <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="button">Bouton</button></a> --}}
     </div>
     
-    <div class="soft_skill">
-        <div class="front-end">
-            <ul class="mon_candidature">
-               <img src="{{ asset('storage/'.$formation->image) }}" alt="">
-            </ul>
+    <div class="soft_skill col-12">
+        <div class="front-end w-2/4 col-5">
+           
+               <img src="{{ asset('storage/'.$formation->image ) }}" alt="">
         </div>
         <div class="back-end">
             <h1>SOFT SKILL</h1>
@@ -388,8 +399,8 @@ footer p {
         <div col="8">
             LA FORMATION EST 100% GRATUITE
         </div>
-        <div col="4">
-            3eme section
+        <div>
+            <a href="{{ route('candidature.ajouter',$formation->id) }}"><button class="btn"><strong>Postuler</strong></button></a>
         </div>
     </div>
 
@@ -501,38 +512,5 @@ footer p {
             </div>
         </div>
     </div>
+</x-candidat>
 
-    <footer>
-        <div class="log">
-            <a href="#">
-                <img src="#" alt="Logo">
-            </a>
-
-
-            <nav class="foot">
-                <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">À propos</a></li>
-                    <li><a href="#">Formations</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-
-
-
-        <br><br><br>
-
-        <div class="social-icons">
-            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-        </div>
-        <p class="copy">Copyright &copy; (DN) 2024</p>
-
-    </footer>
-
-
-</body>
-</html>

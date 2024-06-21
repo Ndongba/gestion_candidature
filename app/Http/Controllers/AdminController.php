@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Formation;
 use App\Models\Candidature;
-use App\Models\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Notification;
+use App\Notifications\CandidatureStatusUpdated;
 
 class AdminController extends Controller
 {
-    //  ListeCandidates
+    //  Liste des tous les Candidates dans les different candidatures
+    public function listeDesCandidats(){
+        $formation = Formation::all();
+        $candidatures = Candidature::all();
+        return view('admins.candidats.liste', compact('candidatures','formation'));
+    }
 
-    
 
  
     public function listeCandidats($id)
@@ -43,11 +50,14 @@ class AdminController extends Controller
         $candidature = Candidature::findOrFail($candidatureId);
         $candidature->etat = $request->input('etat');
         $candidature->save();
-        Notification::create([
-            'message' => "L'état de votre candidature a été mis à jour à : " . $request->input('etat'),
-            'user_id' => $candidature->user_id,
-        ]);
+       
+        $user = User::find($candidature->user_id);
 
+        // Envoyer une notification via Laravel
+        Notification::send($user, new CandidatureStatusUpdated($candidature));
+
+
+        
 
         return redirect()->route('candidature.detail', ['formation' => $formationId, 'candidature' => $candidatureId])
                          ->with('success', 'État de la candidature mis à jour avec succès.');

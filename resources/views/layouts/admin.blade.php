@@ -54,13 +54,13 @@
     <!-- Sidebar -->
     <div class="flex">
         <!-- ACTVE MENU -->
-        <div class="sidebar bg-white shadow-lg h-screen w-64 hover:w-72 fixed transition-all duration-300">
+        <div class="sidebar z-20 bg-white shadow-lg h-screen w-64 hover:w-72 fixed transition-all duration-300">
             <div class="p-6">
                 <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png" alt="Admin Photo"
                 class="w-full ">
 
             </div>
-            <nav class="mt-20">
+            <nav class="mt-20 ">
                 <a href="#"
                     class="flex items-center p-4  hover:bg-red-600 hover:text-white hover:scale-105 transition-all  @if (request()->routeIs('dashboard.admin')) rounded-3xl active @endif">
 
@@ -131,8 +131,8 @@
                         </defs>
                     </svg> <span class="ml-4 text-gray-700 hover:text-white font-bold">Gestion Candidats</span>
                 </a>
-                <a href="{{ route('afficherFormation') }}"
-                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('formation.admin')) active @endif">
+                <a href="{{ route('formations.afficher') }}"
+                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('afficher_candidature')) active @endif">
                     {{-- Fin icon candidat --}}
 
 
@@ -232,10 +232,10 @@
 
 
         <!-- Main content -->
-        <div class=" flex-1">
+        <div class=" w-full flex-1">
             <!-- Navbar -->
-            <div
-                class="bg-red-700 shadow-md py-8 right-0 w-100 mix-w-screen-xl rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
+            <nav
+                class="bg-red-700 shadow-md py-8 right-0  rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
                 <div class="flex items-center">
                 </div>
 
@@ -248,7 +248,7 @@
                     <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
                         class="w-10 h-10 rounded-full">
                 </div>
-            </div>
+            </nav>
 
 
 

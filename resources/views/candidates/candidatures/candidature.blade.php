@@ -14,7 +14,7 @@
     <h3 id="titre1">Formulaire de Candidature</h3>
     <p id="p1">{{ $formation->libelle }}</p>
     
-    <form action="{{url('candidature')}}" method="POST" class="container" enctype="multipart/form-data">
+    <form action="{{route('candidature.traitement')}}" method="POST" class="container" enctype="multipart/form-data">
         @csrf
        
     <h1>Formulaire de Candidature</h1>
