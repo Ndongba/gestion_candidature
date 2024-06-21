@@ -400,7 +400,7 @@ footer p {
             LA FORMATION EST 100% GRATUITE
         </div>
         <div>
-            <a href="{{ url('candidature/post/'.$formation->id) }}"><button class="btn"><strong>Postuler</strong></button></a>
+            <a href="{{ route('candidature.ajouter',$formation->id) }}"><button class="btn"><strong>Postuler</strong></button></a>
         </div>
     </div>
 

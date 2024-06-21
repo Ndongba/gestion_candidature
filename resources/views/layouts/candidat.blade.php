@@ -31,12 +31,12 @@
                         
                     <li><a href="#">Accueil</a></li>
                     <li><a href="#">À propos</a></li>
-                    <li><a href="{{route('formations')}}">Formations</a></li>
+                    <li><a href="{{route('formations.index')}}">Formations</a></li>
                     <li><a href="#">Contact</a></li>
 
                     @else
-                    <li><a href="{{route('formations')}}">Formations</a></li>
-                    <li><a href="{{route('afficher_candidature')}}">Mes candidatures</a></li>
+                    <li><a href="{{route('formations.index')}}">Formations</a></li>
+                    <li><a href="{{route('candidature.afficher')}}">Mes candidatures</a></li>
 
                     @endif
 

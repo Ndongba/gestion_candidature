@@ -59,7 +59,7 @@ class CandidatureController extends Controller
 
                 Candidature::create($data); // Enregistrer le produit dans la base de données
 
-                return redirect()->route('afficher_candidature');
+                return redirect()->route('candidature.afficher');
             }   
        
 

@@ -49,7 +49,7 @@
     
         <div id="contact-form">
            <br>
-            <form action="{{ route('modifierFormationTraitement') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('formations.modifierTraitement') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="id" value="{{ $formations->id }}">
 

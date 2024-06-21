@@ -34,7 +34,7 @@ class FormationController extends Controller
     public function ajoutformation(){
         $formations = Formation::all();
 
-        return view('ajoutformation', compact('formations'));
+        return view('admins.formations.ajoutformation', compact('formations'));
     }
  
 
@@ -68,7 +68,7 @@ class FormationController extends Controller
         'nombre_place' => $request->nombre_place,
     ]);
 
-    return redirect()->route('afficherFormation')->with('success', 'Formation ajoutée avec succès!');
+    return redirect()->route('formations.afficher')->with('success', 'Formation ajoutée avec succès!');
 }
 
 
@@ -79,7 +79,7 @@ public function destroy($id)
     $formation = Formation::findOrFail($id);
     $formation->delete();
 
-    return redirect()->route('candidates.formations.formations')->with('status', 'La formation a été supprimé avec succès.');
+    return redirect()->route('formations.afficher')->with('status', 'La formation a été supprimé avec succès.');
 }
 
 
@@ -100,7 +100,7 @@ public function modifierFormationTraitement(Request $request){
     $formations->date_fin_appel = $request->date_fin_appel;
 
     $formations->update();
-    return redirect()->route('afficherFormation');
+    return redirect()->route('formations.afficher');
 }
 
 }

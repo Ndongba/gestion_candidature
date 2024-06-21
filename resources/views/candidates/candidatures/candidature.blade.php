@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <form action="{{url('candidature')}}" method="POST" class="container" enctype="multipart/form-data">
+    <form action="{{route('candidature.traitement')}}" method="POST" class="container" enctype="multipart/form-data">
         @csrf
        
     <h1>{{ $formation->libelle }}</h1>

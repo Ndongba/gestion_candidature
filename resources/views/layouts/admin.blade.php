@@ -131,7 +131,7 @@
                         </defs>
                     </svg> <span class="ml-4 text-gray-700 hover:text-white font-bold">Gestion Candidats</span>
                 </a>
-                <a href="{{ route('afficherFormation') }}"
+                <a href="{{ route('formations.afficher') }}"
                     class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('afficher_candidature')) active @endif">
                     {{-- Fin icon candidat --}}
 
