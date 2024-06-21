@@ -46,10 +46,10 @@ Route::controller(CandidatureController::class)->group(function () {
     Route::get('candidature/post/{id}', 'ajouter_candidature')->name('candidature');
     Route::post('candidature','traitement_candidature');
     Route::get('affiche_candidature','afficher_candidature')->name('afficher_candidature');
-    
+
 });
 // Routes pour l'administration
-    Route::controller(AdminController::class)->middleware('personnel')->prefix('admin')->group(function () {
+    Route::controller(AdminController::class)->prefix('admin')->group(function () {
         // Affiche le tableau de bord de l'admin
     Route::get('candidats/', 'listeDesCandidats')->name('candidats.admin');
     Route::get('candidats/{id}', 'listeCandidats')->name('candidats.liste.admin');
@@ -71,4 +71,3 @@ Route::post('/candidats/formations', [FormationController::class, 'store'])->mid
 Route::delete('formations/{id}', [FormationController::class, 'destroy'])->name('Suppression');
 
     // Valide
-    

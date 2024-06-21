@@ -14,7 +14,8 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),    
+    'default' => env('MAIL_MAILER', 'smtp'),
+
     /*
     |--------------------------------------------------------------------------
     | Mailer Configurations
@@ -33,50 +34,19 @@ return [
     |            "failover", "roundrobin"
     |
     */
-    
 
     'mailers' => [
+
         'smtp' => [
             'transport' => 'smtp',
             'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-            'port' => env('MAIL_PORT', 465),
-            'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
-            'username' => env('MAIL_USERNAME'),
-            'password' => env('MAIL_PASSWORD'),
-            'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
-        ],
-     'mailgun' => [
-    'transport' => 'mailgun',
-    // 'client' => [
-    //     'timeout' => 5,
-    // ],
-],
-'smtp' => [
-            'transport' => 'smtp',
-            'url' => env('MAIL_URL'),
-            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
-
-            'port' => env('MAIL_PORT', 587),
+            'host' => env('MAIL_HOST', '127.0.0.1'),
+            'port' => env('MAIL_PORT', 265),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
-            'local_domain' => env('MAIL_EHLO_DOMAIN'),
-        ],
-        // 'mailgun' => [
-        //     'transport' => 'mailgun',
-        //     'domain' => env('MAILGUN_DOMAIN'),
-        //     'secret' => env('MAILGUN_SECRET'),
-        //     'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
-        // ],
-
-        'mailgun' => [
-            'transport' => 'mailgun',
-            // 'client' => [
-            //     'timeout' => 5,
-            // ],
+            'local_domain' => env('MAIL_EHLO_DOMAIN', parse_url(env('APP_URL', 'http://localhost'), PHP_URL_HOST)),
         ],
 
         'ses' => [
@@ -137,11 +107,6 @@ return [
     | used globally for all emails that are sent by your application.
     |
     */
-
-    'driver' => env('MAIL_DRIVER', 'smtp'),
-'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-'port' => env('MAIL_PORT', 587),
-
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'souleymane9700@gmail.com'),
