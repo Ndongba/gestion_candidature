@@ -76,26 +76,32 @@
 </div>
 
 
-<style>
-    #biography-toggle,
-#motivation-toggle {
-    display: none;
-}
+<div class="container">
+<div class="form-container">
+    <h2 class="text-center mb-4">Mettre à jour l'état de la candidature</h2>
+    <form action="{{ route('candidature.updateStatus', ['formation' => $formation->id, 'candidature' => $candidature->id]) }}" method="POST">
+        @csrf
+        @method('PATCH')
 
-#biography-link,
-#motivation-link {
-    color: blue;
-    cursor: pointer;
-}
+        <div class="form-group mb-2">
+            <label for="etat" class="form-label">Changer l'état :</label>
+            <select name="etat" id="etat" class="form-control form-select">
+                @foreach (['en_evaluation' => 'En évaluation', 'en_attente' => 'En attente', 'accepter' => 'Accepté', 'refuser' => 'Refusé'] as $value => $label)
+                <option value="{{ $value }}" {{ $candidature->etat == $value ? 'selected' : '' }}>
+                    {{ $label }}
+                </option>
+                @endforeach
+            </select>
 
-</style>
-
-
-
+            <button type="submit" class="btn btn-primary">Mettre à jour</button>
+        </div>
+    </form>
+</div>
+</div>
 
 
     <!-- Formulaire de mise à jour de l'état -->
-    <form action="{{ route('candidature.updateStatus', ['formation' => $formation->id, 'candidature' => $candidature->id]) }}" method="POST" class="mt-4">
+    {{-- <form action="{{ route('candidature.updateStatus', ['formation' => $formation->id, 'candidature' => $candidature->id]) }}" method="POST" class="mt-4">
         @csrf
         @method('PATCH')
 
@@ -111,7 +117,7 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
-    </form>
+    </form> --}}
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -147,6 +153,47 @@
         });
     </script>
     
-    
+  
+<style>
+    #biography-toggle,
+#motivation-toggle {
+    display: none;
+}
+
+#biography-link,
+#motivation-link {
+    color: blue;
+    cursor: pointer;
+}
+
+</style>
+
+
+
+<style>
+    .form-container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+    }
+    .form-group {
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    .form-label {
+        margin-right: 10px;
+        flex: 0 0 auto;
+    }
+    .form-select {
+        flex: 1 1 auto;
+        margin-right: 10px;
+    }
+    .btn {
+        flex: 0 0 auto;
+    }
+</style>  
 
 </x-layout>

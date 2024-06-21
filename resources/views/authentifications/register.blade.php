@@ -25,7 +25,7 @@
 
 <body class="bg-gray-100 min-h-screen flex flex-col">
     <!-- Navbar -->
-    <nav class="bg-gray-800 p-4 shadow-md">
+    {{-- <nav class="bg-gray-800 p-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
             <a href="#" class="text-white text-xl font-bold">MonSite</a>
             <div>
@@ -33,7 +33,7 @@
                 <a href="{{ route('login') }}" class="text-gray-300 hover:text-white mx-2">Connexion</a>
             </div>
         </div>
-    </nav>
+    </nav> --}}
     
     <div class=" bg-white rounded-lg shadow-lg overflow-hidden mx-auto h-screen grid grid-cols-2 gap-4   w-full">
         <div class="hidden lg:block lg:w-3/3  ml-16 bg-cover"

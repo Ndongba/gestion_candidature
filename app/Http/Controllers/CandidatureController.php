@@ -16,7 +16,7 @@ class CandidatureController extends Controller
         $formation=Formation::find($id);
        
 
-        return view('candidature', compact('formation'));
+        return view('candidates.candidatures.candidature', compact('formation'));
     
     }
 
@@ -69,7 +69,7 @@ class CandidatureController extends Controller
                 $candidatures = Candidature::where('user_id', $candidat)->get();
                
 
-                return view('affiche_candidature', compact('candidatures'));
+                return view('candidates.candidatures.affiche_candidature', compact('candidatures'));
                 
                 
             }
