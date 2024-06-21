@@ -48,7 +48,15 @@
                 <span class="text-gray-800 mr-4">{{ Auth::user()->prenom }}</span>
                 <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
                 class="w-10 h-10 rounded-full">
-                    
+                <form action="{{ route('logout') }}" method="post" >
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit"
+                        class="w-full flex items-center p-4 text-red-600 hover:bg-red-100 hover:scale-105 transition-all rounded">
+                        <span class="material-icons-sharp">logout</span>
+                        <span class="ml-4">Déconnexion</span>
+                    </button>
+                </form>  
                 @endauth
               
             </div>
