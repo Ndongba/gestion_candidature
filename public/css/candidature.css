@@ -1,0 +1,53 @@
+
+.container{
+    border: solid #FFC6C6 0.1em;
+    padding: 5em;
+    border-radius: 1em;
+    background-color: #FFC6C6;
+    
+    
+   
+}
+
+#titre1{
+    text-align: left;
+    font-size: 3em;
+    margin-left: 5.6em;
+
+}
+#p1{
+    text-align: left;
+    font-size: 2em;
+    margin-left: 8.5em;
+}
+
+#bouton{
+    width: 48.5em;
+    height: 2em;
+    border-radius: 0.5em;
+    margin-top: 2em;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    font-size: 1.5em;
+}
+
+.infos{
+    
+    display: flex;
+    justify-content: space-between;
+    
+    
+
+}
+
+.infos_perso{
+    display: grid;
+    grid-template-columns: 10em 10em;
+    gap: 40em;
+    
+}
+
+#img{
+    border-radius: 15em;
+}

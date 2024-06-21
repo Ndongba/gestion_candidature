@@ -72,4 +72,9 @@ class CandidatureController extends Controller
                 
                 
             }
+
+            public function detail_candidature(){
+
+                return view('detail_affiche_candidature');
+            }
 }
