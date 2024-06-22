@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class RoleMiddleware
+class ShareNotifications
 {
+
+    
     /**
      * Handle an incoming request.
      *
@@ -16,9 +18,10 @@ class RoleMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || Auth::user()->role !== 'personnel') {
-            abort(403, 'Unauthorized action.');
+        if (Auth::check()) {
+            $notifications = Auth::user()->notifications;
+            view()->share('notifications', $notifications);
         }
         return $next($request);
-    }       
+    }
 }

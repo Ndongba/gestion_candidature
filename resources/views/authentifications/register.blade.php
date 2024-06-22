@@ -1,47 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+    <x-candidat>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-
-<body class="bg-gray-100 min-h-screen flex flex-col">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-white text-xl font-bold">MonSite</a>
-            <div>
-                <a href="{{ route('register') }}" class="text-gray-300 hover:text-white mx-2">Inscription</a>
-                <a href="{{ route('login') }}" class="text-gray-300 hover:text-white mx-2">Connexion</a>
-            </div>
-        </div>
-    </nav>
     
     <div class=" bg-white rounded-lg shadow-lg overflow-hidden mx-auto h-screen grid grid-cols-2 gap-4   w-full">
         <div class="hidden lg:block lg:w-3/3  ml-16 bg-cover"
-            style="background-image:url('{{ asset('./images/Rectangle.jpg') }}')">
+            style="background-image:url('{{ asset('./images/register.png') }}')">
         </div>
         <div class="center my-12 items-center justify-center p-8 mx-16 lg:w-2/3">
             
             <a href="#" class="flex mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+               
+                <h4 class="px-4 py-3 w-5/6 text-center text-white  bg-gray-600 font-bold">Se Connecter avec Google</h4>
                 <div class="px-4 py-3">
                     <svg class="h-6 w-6" viewBox="0 0 40 40">
                         <path
@@ -58,7 +26,6 @@
                             fill="#1976D2" />
                     </svg>
                 </div>
-                <h1 class="px-4 py-3 w-5/6 text-center text-gray-600  bg-gray-600 font-bold">Se Connecter avec Google</h1>
             </a>
             <div class="mt-4 flex items-center justify-between">
                 {{-- <span class="border-b w-1/5 lg:w-1/4"></span>
@@ -83,30 +50,24 @@
                 <input class="bg-white text-gray-700 focus:outline-none shadow-outline focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" type="text" placeholder="telephone" name="telephone" id="telephone"  />
             </div>
             <div class="py-1">
+                <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
+                <input class="bg-white text-gray-700 focus:outline-none shadow-outline focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" type="email" placeholder="email" name="email" id="email"  />
+            </div>
+            <div class="py-1">
                 <div class="flex justify-between">
                     <label class="block text-gray-700 text-sm font-bold mb-2">Mot de passe</label>
                 </div>
                 <input class="bg-gray-100 text-gray-700 focus:outline-none shadow-outline placeholder:bg-slate-300 focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" type="password" placeholder="password" name="password" id="password"/>
-            </div>
-            <div class="py-1">
-                <label class="block text-gray-700 text-sm font-bold mb-2">Email</label>
-                <input class="bg-white text-gray-700 focus:outline-none shadow-outline focus:shadow-outline border border-gray-300 rounded-lg py-5 block w-full appearance-none" type="email" placeholder="email" name="email" id="email"  />
             </div>
             <div class="py-8">
                 <button type="submit" class="bg-red-700 text-white ro font-bold py-5 px-4 w-full rounded-lg hover:bg-red-600">Se Connecter</button>
             </div>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="#" class="text-xs text-gray-500 ">Pas de compte ? S’inscrire</a>
+                <a href="{{ route('login') }}" class="text-xs text-gray-500 ">Vous avez déjà un compte ? Connectez-vous</a>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </form>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-
-</body>
-
-</html>
+</x-candidat>

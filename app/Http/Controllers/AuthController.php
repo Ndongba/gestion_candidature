@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Mail\WelcomeMail;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\AuthController;
 
 class AuthController extends Controller
@@ -39,7 +42,11 @@ class AuthController extends Controller
 
 
        public function login(){
+        
+
         return view('authentifications.login');
+
+
        }
     
        public function loginSave(Request $request)
@@ -54,9 +61,9 @@ class AuthController extends Controller
                if (Auth::user()->role === 'personnel') {
                    return redirect('admin/candidats')->with('success', 'Connexion réussie en tant qu\'admin');
                } else if (Auth::user()->role === 'candidat') {
-                   return redirect('/')->with('success', 'Connexion réussie en tant que candidat');
+                   return redirect('/formations')->with('success', 'Connexion réussie en tant que candidat');
                } else {
-                   return redirect('/')->with('success', 'Connexion réussie');
+                   return redirect('/formations')->with('success', 'Connexion réussie');
                }
            } else {
                // Les informations d'identification sont incorrectes

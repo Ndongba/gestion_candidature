@@ -1,36 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Connexion</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
-        }
+<x-candidat>
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-    </style>
-</head>
-<body class="bg-gray-100 min-h-screen w-full flex flex-col">
-    <!-- Navbar -->
-    <nav class="bg-gray-800 p-4 shadow-md">
-        <div class="container mx-auto flex justify-between items-center">
-            <a href="#" class="text-white text-xl font-bold">MonSite</a>
-            <div>
-                <a href="{{ route('register') }}" class="text-gray-300 hover:text-white mx-2">Inscription</a>
-                <a href="{{ route('login') }}" class="text-gray-300 hover:text-white mx-2">Connexion</a>
-            </div>
-        </div>
-    </nav>
 
  <!-- https://play.tailwindcss.com/MIwj5Sp9pw -->
  <div class="">
@@ -41,6 +10,8 @@
         <div class="center my-32 items-center justify-center p-8 mx-16 lg:w-2/3">
             
             <a href="#" class="flex mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
+                
+                <h4 class="px-4 py-3 w-5/6 text-center text-white  bg-gray-600 font-bold">Se Connecter avec Google</h4>
                 <div class="px-4 py-3">
                     <svg class="h-6 w-6" viewBox="0 0 40 40">
                         <path
@@ -57,7 +28,6 @@
                             fill="#1976D2" />
                     </svg>
                 </div>
-                <h1 class="px-4 py-3 w-5/6 text-center text-gray-600  bg-gray-600 font-bold">Se Connecter avec Google</h1>
             </a>
             <div class="mt-4 flex items-center justify-between">
                 {{-- <span class="border-b w-1/5 lg:w-1/4"></span>
@@ -81,41 +51,12 @@
             </div>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="#" class="text-xs text-gray-500 uppercase">Pas de compte ? S’inscrire</a>
+                <a href="{{ route('register') }}" class="text-xs text-gray-500 uppercase">Pas de compte ? S’inscrire</a>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </form>
         </div>
     </div>
 </div>
+</x-candidat>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#connexionForm").validate({
-                rules: {
-                    email: {
-                        required: true,
-                        email: true
-                    },
-                    password: {
-                        required: true,
-                        minlength: 6
-                    }
-                },
-                messages: {
-                    email: {
-                        required: "Veuillez entrer votre email",
-                        email: "Veuillez entrer un email valide"
-                    },
-                    password: {
-                        required: "Veuillez entrer votre mot de passe",
-                        minlength: "Le mot de passe doit contenir au moins 6 caractères"
-                    }
-                }
-            });
-        });
-    </script>
-</body>
-</html>

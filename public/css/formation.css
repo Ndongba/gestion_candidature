@@ -45,8 +45,8 @@ main {
 }
 
 main h1 {
-    text-align: center;
-    color: #ce0033;
+    /* text-align: center;
+    color: #ce0033; */
     font-size: 42px;
 }
 

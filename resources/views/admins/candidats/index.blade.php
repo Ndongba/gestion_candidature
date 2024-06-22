@@ -5,50 +5,82 @@
 
     <!-- Content -->
     <div class="">
-    
 
-    <!-- Statistiques des candidats -->
 
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 px-4 sm:px-8 mt-0">
-        <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
-            <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Candidats retenus</h3>
-                <p class="text-3xl bold py-2">{{ $formation->candidatures->where('etat', 'accepter')->count() }}</p>
-            </div>
+        <!-- Statistiques des candidats -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 px-4 sm:px-8 mt-0">
+            <a href="{{ route('candidatures.filterByEtat', ['formation_id' => $formation->id, 'etat' => 'accepter']) }}"
+                class="block w-full {{ request()->segment(4) === 'accepter' ? 'active' : '' }}">
+                <div
+                    class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden hover:bg-gray-100 transition duration-300">
+                    <div class="px-4 text-gray-700">
+                        <h3 class="text-sm tracking-wider">Candidats retenus</h3>
+                        <p class="text-3xl font-bold py-2">
+                            {{ $formation->candidatures->where('etat', 'accepter')->count() }}/ <span class="text-xl">
+                                {{ $formation->nombre_place }}</span>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('candidatures.filterByEtat', ['formation_id' => $formation->id, 'etat' => 'en_attente']) }}"
+                class="block w-full {{ request()->segment(4) === 'en_attente' ? 'active' : '' }}">
+                <div
+                    class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden hover:bg-gray-100 transition duration-300">
+                    <div class="px-4 text-gray-700">
+                        <h3 class="text-sm tracking-wider">Candidats en attente</h3>
+                        <p class="text-3xl font-bold py-2">
+                            {{ $formation->candidatures->where('etat', 'en_attente')->count() }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('candidatures.filterByEtat', ['formation_id' => $formation->id, 'etat' => 'en_evaluation']) }}"
+                class="block w-full {{ request()->segment(4) === 'en_evaluation' ? 'active' : '' }}">
+                <div
+                    class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden hover:bg-gray-100 transition duration-300">
+                    <div class="px-4 text-gray-700">
+                        <h3 class="text-sm tracking-wider">Candidats non évalués</h3>
+                        <p class="text-3xl font-bold py-2">
+                            {{ $formation->candidatures->where('etat', 'en_evaluation')->count() }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('candidatures.filterByEtat', ['formation_id' => $formation->id, 'etat' => 'refuser']) }}"
+                class="block w-full {{ request()->segment(4) === 'refuser' ? 'active' : '' }}">
+                <div
+                    class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden hover:bg-gray-100 transition duration-300">
+                    <div class="px-4 text-gray-700">
+                        <h3 class="text-sm tracking-wider">Candidats non retenus</h3>
+                        <p class="text-3xl font-bold py-2">
+                            {{ $formation->candidatures->where('etat', 'refuser')->count() }}
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('candidats.liste.admin', ['formation_id' => $formation->id]) }}"
+                class="block w-full {{ !request()->segment(4) ? 'active' : '' }}">
+                <div
+                    class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden hover:bg-gray-100 transition duration-300">
+                    <div class="px-4 text-gray-700">
+                        <h3 class="text-sm tracking-wider">Candidats postulés</h3>
+                        <p class="text-3xl font-bold py-2">
+                            {{ $formation->candidatures->count() }}
+                        </p>
+                    </div>
+                </div>
+            </a>
         </div>
-        <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
-            <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Ca   ndidats en attente</h3>
-                <p class="text-3xl bold py-2">{{ $formation->candidatures->where('etat', 'en_attente')->count() }}</p>
-            </div>
-        </div>
-        <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
-            <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Candidats non évalués</h3>
-                <p class="text-3xl bold py-2">{{ $formation->candidatures->where('etat', 'en_evaluation')->count() }}
-                </p>
-            </div>
-        </div>
-        <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
-            <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Candidats non retenus</h3>
-                <p class="text-3xl bold py-2">{{ $formation->candidatures->where('etat', 'refuser')->count() }}</p>
-            </div>
-        </div>
-        <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
-            <div class="px-4 text-gray-700">
-                <h3 class="text-sm tracking-wider">Candidats postulés</h3>
-                <p class="text-3xl bold py-2">{{ $formation->candidatures->count() }}</p>
-            </div>
-        </div>
+
+
 
     </div>
-   
+
 
 
     <!-- Titre -->
-    <div class="my-10 text-left">
-        <span>{{ $formation->libelle }}</span>
+    <div class="my-10 text-left">Appel a candidature Formation
+        <span class=" bold">{{ $formation->libelle }}</span>
     </div>
 
     <!-- Liste des candidatures -->
@@ -63,9 +95,19 @@
 
 
 
-            <div class="w-1/4    mx-auto">
-                <input type="text" class="w-full p-2 border border-gray-300 rounded-3xl" placeholder="Recherche...">
+            <div class="w-1/4 mx-auto">
+                <form action="{{ route('candidats.liste.admin', $formation->id) }}" method="GET"
+                    class="flex items-center">
+                    <input type="text" name="s" value="{{ request('s') }}"
+                        class="w-full p-2 border border-gray-300 rounded-l-3xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Recherche...">
+                    <button type="submit"
+                        class="bg-red-500 text-white p-2 rounded-r-3xl hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
             </div>
+
         </div>
 
         <div class="overflow-x-auto">
@@ -73,10 +115,10 @@
                 <thead class="text-black">
                     <tr>
                         <th class="px-4 py-2 text-left">Candidat</th>
+                        <th class="px-4 py-2 text-left">Nom</th>
+                        <th class="px-4 py-2 text-left">Prenom</th>
                         <th class="px-4 py-2 text-left">Email</th>
                         <th class="px-4 py-2 text-left">Téléphone</th>
-                        <th class="px-4 py-2 text-left">Biographie</th>
-                        <th class="px-4 py-2 text-left">Motivation</th>
                         <th class="px-4 py-2 text-left">État</th>
                         <th class="px-4 py-2 text-center">Actions</th>
                     </tr>
@@ -87,34 +129,39 @@
                             <td class="border-t px-4 py-2 flex items-center">
                                 <img src="https://w7.pngwing.com/pngs/866/254/png-transparent-naruto-uzumaki-sasuke-uchiha-naruto-head-sasuke-uchiha-cartoon-thumbnail.png"
                                     alt="Avatar de" class="w-10 h-10 rounded-full mr-3">
-                                <span>{{ $candidature->user->prenom }} {{ $candidature->user->nom }}</span>
                             </td>
+                            <td class="border-t px-4 py-5">{{ $candidature->user->nom }}</td>
+                            <td class="border-t px-4 py-5">{{ $candidature->user->prenom }}</td>
                             <td class="border-t px-4 py-5">{{ $candidature->user->email }}</td>
                             <td class="border-t px-4 py-5">{{ $candidature->user->telephone }}</td>
-                            <td class="border-t px-4 py-5">{{ $candidature->biographie }}</td>
-                            <td class="border-t px-4 py-5">{{ $candidature->motivation }}</td>
+
                             <td class="border-t px-4 py-5">{{ $candidature->etat }}</td>
                             <td class="border-t  px-5 py-1">
                                 <div class="flex">
 
                                     {{-- Icon detail --}}
-                                    <a href="{{ route('candidature.detail', ['formation' => $formation->id, 'candidature' => $candidature->id]) }}" class="text-blue-500 hover:text-blue-700">
-                                        <svg class="mr-3" width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 6.7002H20V8.7002H13V6.7002ZM14 10.7002H20V12.7002H14V10.7002ZM12 2.7002H20V4.7002H12V2.7002ZM2 14.7002H12V13.7002C12 10.9432 9.757 8.7002 7 8.7002H5C2.243 8.7002 0 10.9432 0 13.7002V14.7002H2ZM6 7.7002C7.995 7.7002 9.5 6.1952 9.5 4.2002C9.5 2.2052 7.995 0.700195 6 0.700195C4.005 0.700195 2.5 2.2052 2.5 4.2002C2.5 6.1952 4.005 7.7002 6 7.7002Z" fill="#CE0033" />
+                                    <a href="{{ route('candidature.detail', ['formation' => $formation->id, 'candidature' => $candidature->id]) }}"
+                                        class="text-blue-500 hover:text-blue-700">
+                                        <svg class="mr-3" width="20" height="15" viewBox="0 0 20 15"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M13 6.7002H20V8.7002H13V6.7002ZM14 10.7002H20V12.7002H14V10.7002ZM12 2.7002H20V4.7002H12V2.7002ZM2 14.7002H12V13.7002C12 10.9432 9.757 8.7002 7 8.7002H5C2.243 8.7002 0 10.9432 0 13.7002V14.7002H2ZM6 7.7002C7.995 7.7002 9.5 6.1952 9.5 4.2002C9.5 2.2052 7.995 0.700195 6 0.700195C4.005 0.700195 2.5 2.2052 2.5 4.2002C2.5 6.1952 4.005 7.7002 6 7.7002Z"
+                                                fill="#CE0033" />
                                         </svg>
                                     </a>
-                                    
+
                                     {{-- Fin Icon detail --}}
 
                                     {{-- Icon Telecharger  --}}
 
-                                    <a href="{{ asset('storage/cv/' . $candidature->cv) }}"><svg width="13" height="15" viewBox="0 0 13 15"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <a href="{{ asset('storage/cv/' . $candidature->cv) }}"><svg width="13"
+                                            height="15" viewBox="0 0 13 15" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M10.8333 12.9572C11.1313 12.9572 11.375 12.7561 11.375 12.5104V4.468H8.66667C8.06745 4.468 7.58333 4.06867 7.58333 3.5744V1.3404H2.16667C1.86875 1.3404 1.625 1.54146 1.625 1.7872V12.5104C1.625 12.7561 1.86875 12.9572 2.16667 12.9572H10.8333ZM0 1.7872C0 0.801448 0.971615 0 2.16667 0H7.76953C8.34505 0 8.89688 0.187098 9.30313 0.522197L12.3669 3.04941C12.7732 3.38451 13 3.83969 13 4.31441V12.5104C13 13.4962 12.0284 14.2976 10.8333 14.2976H2.16667C0.971615 14.2976 0 13.4962 0 12.5104V1.7872Z"
                                                 fill="#CE0033" />
                                         </svg></a>
-                                     {{-- Fin Icon Telecharger  --}}
+                                    {{-- Fin Icon Telecharger  --}}
 
 
                                 </div>
@@ -128,4 +175,5 @@
             </table>
         </div>
     </div>
+
 </x-layout>

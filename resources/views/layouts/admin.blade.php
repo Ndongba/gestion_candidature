@@ -10,21 +10,11 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
     <style>
-        .hover-scale {
-            transition: transform 0.3s;
-        }
-
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-
         .sidebar {
             transition: width 0.3s;
         }
 
-        .sidebar:hover {
-            width: 250px;
-        }
+
 
         .active {
             background-color: #DB1313;
@@ -54,13 +44,13 @@
     <!-- Sidebar -->
     <div class="flex">
         <!-- ACTVE MENU -->
-        <div class="sidebar bg-white shadow-lg h-screen w-64 hover:w-72 fixed transition-all duration-300">
+        <div class="sidebar z-20 bg-white shadow-lg h-screen w-64 hover:w-72 fixed transition-all duration-300">
             <div class="p-6">
-                <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png" alt="Admin Photo"
-                class="w-full ">
+                <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png"
+                    alt="Admin Photo" class="w-full ">
 
             </div>
-            <nav class="mt-20">
+            <nav class="mt-20 ">
                 <a href="#"
                     class="flex items-center p-4  hover:bg-red-600 hover:text-white hover:scale-105 transition-all  @if (request()->routeIs('dashboard.admin')) rounded-3xl active @endif">
 
@@ -131,8 +121,8 @@
                         </defs>
                     </svg> <span class="ml-4 text-gray-700 hover:text-white font-bold">Gestion Candidats</span>
                 </a>
-                <a href="{{ route('afficherFormation') }}"
-                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('formation.admin')) active @endif">
+                <a href="{{ route('formations.afficher') }}"
+                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('afficher_candidature')) active @endif">
                     {{-- Fin icon candidat --}}
 
 
@@ -232,39 +222,35 @@
 
 
         <!-- Main content -->
-        <div class=" flex-1">
-            <!-- Navbar -->
-            <div
-                class="bg-red-700 shadow-md py-8 right-0 w-100 mix-w-screen-xl rounded-lg mr-8 container px-12 fixed top-0 flex items-center justify-between z-10">
+        <!-- Main content -->
+        <main class="flex  flex-col flex-1 w-full overflow-y-auto">
+            <nav class="flex items-center  w-full  justify-between h-20 bg-red-700 shadow-md border-b  border-gray-200">
+
+                <!-- Navbar -->
                 <div class="flex items-center">
+                    <!-- Add logo or title here if needed -->
                 </div>
-
-                <div class="flex items-center">
+                <div class="flex pr-8 items-center">
                     @auth
-                    <span class="text-gray-800 mr-4">{{ Auth::user()->prenom }}</span>
-
-                        
+                        <span class="text-white mr-4">{{ Auth::user()->prenom }}</span>
                     @endauth
                     <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
                         class="w-10 h-10 rounded-full">
                 </div>
-            </div>
-
-
-
+            </nav>
             <!-- Content -->
-            <div class="pt-24 ml-64  mt- px-8">
-                <div class=" p-6 ">
+            <div class="pt-24 ml-64 px-8">
+                <div class="p-6">
                     {{ $slot }}
                 </div>
             </div>
-        </div>
-    </div>
-    {{-- <div class="bg-white p-6 rounded-lg shadow-md">
-        {{ $slot }}
-    </div> --}}
+        </main>
 
-        <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+
 </body>
 
 </html>

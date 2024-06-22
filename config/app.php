@@ -93,8 +93,7 @@ return [
     | to a random, 32 character string to ensure that all encrypted values
     | are secure. You should do this prior to deploying the application.
     |
-    */
-
+ 
     'cipher' => 'AES-256-CBC',
 
     'key' => env('APP_KEY'),
