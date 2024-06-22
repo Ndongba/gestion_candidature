@@ -9,7 +9,7 @@ use App\Models\Candidature;
 use App\Models\Formation;
 use App\Models\User;
 
-class CandidatureStatusUpdated extends Notification
+class CandidatePostuler extends Notification
 {
     use Queueable;
 
@@ -24,20 +24,19 @@ class CandidatureStatusUpdated extends Notification
 
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail'];
     }
 
     public function toMail($notifiable)
     {
         $personnelEmails = User::where('role', 'personnel')->pluck('email')->toArray();
 
-        $mailMessage = (new MailMessage)
-            ->subject('Mise à jour de l\'état de votre candidature')
+            $mailMessage = (new MailMessage)
+            ->subject('Votre candidature a été acceptée')
             ->greeting('Bonjour ' . $notifiable->prenom . ' ' . $notifiable->nom . ',')
-            ->line("L'état de votre candidature à la formation \"{$this->formation->libelle}\" a été mis à jour à : {$this->candidature->etat}")
+            ->line("Votre candidature à la formation \"{$this->formation->libelle}\" a été mise à jour à : {$this->candidature->etat}")
             ->action('Voir la candidature', url('/affiche_candidature'))
             ->line('Merci d\'utiliser notre application!');
-
         // Ajouter les emails du personnel en copie
         foreach ($personnelEmails as $email) {
             $mailMessage->cc($email);
@@ -49,7 +48,7 @@ class CandidatureStatusUpdated extends Notification
     public function toArray($notifiable)
     {
         return [
-            'message' => "L'état de votre candidature à la formation \"{$this->formation->libelle}\" a été mis à jour à : {$this->candidature->etat}",
+            'message' => "Votre candidature à la formation \"{$this->formation->libelle}\" a été mise à jour à : {$this->candidature->etat}",
             'candidature_id' => $this->candidature->id,
             'etat' => $this->candidature->etat, // Ajoutez cette ligne
 

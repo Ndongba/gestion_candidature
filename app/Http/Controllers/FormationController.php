@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Formation;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FormationController extends Controller
 {
 
 
     public function Detail($id){
+
         $formation=Formation::find($id);
         return view('candidates.formations.detailformation', compact('formation'));
     }
@@ -18,6 +20,7 @@ class FormationController extends Controller
     //Ctte fonction c'est pour l'affichage des formations
     public function index()
     {
+
         // Récupérer toutes les formations
         $formations = Formation::all();
 
@@ -27,6 +30,7 @@ class FormationController extends Controller
 
 
     public function afficherFormation(){
+
         $formations = Formation::all();
         return view('admins.formations.listeformations', compact('formations'));
     }
@@ -91,6 +95,7 @@ public function modifierFormation($id){
 public function modifierFormationTraitement(Request $request){
     $formations = Formation::find($request->id);
     $formations->libelle = $request->libelle;
+    $formations->nombre_place = $request->nombre_place;
     $formations->description = $request->description;
     $formations->date_debut = $request->date_debut;
     $formations->date_fin = $request->date_fin;

@@ -13,8 +13,15 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'personnel' => \App\Http\Middleware\RoleMiddleware::class,
+            'share.notifications' => \App\Http\Middleware\ShareNotifications::class,
+
         ]);
+
+      
+        
     })
+
+    
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

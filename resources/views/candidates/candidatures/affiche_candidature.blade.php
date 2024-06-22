@@ -36,7 +36,35 @@
       </div>
       
   </div>
+  {{-- <div id="modelConfirm" class="fixed inset-0 bg-gray-600 bg-opacity-50 justify-end right-0 overflow-y-auto h-full w-full hidden">
+    <div class=" absolute right-0 top-20 mx-auto p-5 border w-2/6 shadow-lg rounded-md bg-white">
+        <div class="mt-3 text-center">
+            <h3 class="text-lg leading-6 font-medium text-gray-900">
+                Notifications
+            </h3>
+            <div class="mt-2 px-7 py-3">
+                @include('candidates.notifications.index')
+            </div>
+            <div class="items-center px-4 py-3">
+                <button id="ok-btn" class="px-4 py-2 bg-red-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div> --}}
+</div>
+
+<script>
+    function openModal(id) {
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    document.getElementById('ok-btn').addEventListener('click', function() {
+        document.getElementById('modelConfirm').classList.add('hidden');
+    });
+</script>
+
+
+@include('layouts.footer');
 </x-candidat> 
 
-</body>
-</html>

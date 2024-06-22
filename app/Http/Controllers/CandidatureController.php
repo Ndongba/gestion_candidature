@@ -6,66 +6,78 @@ use App\Models\User;
 use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Mail\DecisionCandidature;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Notifications\CandidatePostuler;
+use Illuminate\Support\Facades\Notification;
+
 
 class CandidatureController extends Controller
 {
   
     public function ajouter_candidature($id){
         $formation=Formation::find($id);
-       
+        // $notifications = Auth::user()->notifications;
 
-        return view('candidates.candidatures.candidature', compact('formation'));
+
+        return view('candidates.candidatures.candidature', compact('formation',));
     
     }
 
 
-    public function traitement_candidature(Request $request){
-
+  
        
-        $request->validate([
+            public function traitement_candidature(Request $request)
+            {
+                $request->validate([
+                    'formation_id' => 'required',
+                    'biographie' => 'required',
+                    'motivation' => 'required',
+                    'cv' => 'required|file|mimes:jpeg,png,gif,svg,jpg,pdf|max:2048',
+                ]);
             
-            'formation_id' => 'required',
-            'biographie' => 'required',
-            'motivation' => 'required',
-            'cv' => 'required|file|mimes:jpeg,png,gif,svg,jpg,pdf|max:2048',
-
+                // Vérifier si le candidat a déjà postulé à cette formation
+                $candidat = auth()->id();
+                $formation_id = $request->input('formation_id');
             
-        ]);
-
-            $candidat=auth()->id();
-                $image= null;
-            //verification si le fichier est uploadé
-            if($request->hasFile('cv')){
-                //stockage de l'image
-                $chemin_image=$request->file('cv')->store('public/cv');
-                //verifiaction si le chemin de l'image est bien généré
-                if(!$chemin_image){
-                    return redirect()->back()->with('error', 'erreur');
+                $existingCandidature = Candidature::where('user_id', $candidat)
+                    ->where('formation_id', $formation_id)
+                    ->first();
+            
+                if ($existingCandidature) {
+                    return redirect()->back()->with('error', 'Vous avez déjà postulé à cette formation.');
                 }
-
-                //Recuperer le nom du fichier de l'image
-                $image=basename($chemin_image);
-
-            }
-
-                //Creer un CV avec les données validées et le chemin de l'image
-                $data=$request->all();
+            
+                // Stockage du fichier CV
+                $image = null;
+                if ($request->hasFile('cv')) {
+                    $chemin_image = $request->file('cv')->store('public/cv');
+                    if (!$chemin_image) {
+                        return redirect()->back()->with('error', 'Erreur lors du téléchargement du fichier.');
+                    }
+                    $image = basename($chemin_image);
+                }
+            
+                // Créer une candidature avec les données validées et le chemin de l'image
+                $data = $request->all();
                 $data['cv'] = $image;
-                $data['user_id']=$candidat;
-                $data['etat']='en_evaluation';
-                // $data['user_id'] = $candidat;
-
-                Candidature::create($data); // Enregistrer le produit dans la base de données
-
-                return redirect()->route('candidature.afficher');
-            }   
-       
-
+                $data['user_id'] = $candidat;
+                $data['etat'] = 'en_evaluation';
+            
+                $candidature = Candidature::create($data); // Enregistrer la candidature dans la base de données
+            
+                $user = User::find($candidature->user_id);
+            
+                // Envoyer une notification via Laravel
+                Notification::send($user, new CandidatePostuler($candidature));
+            
+                return redirect()->route('candidature.afficher')->with('success', 'Votre candidature a été soumise avec succès.');
+            }
+            
             public function afficher_candidature(){
                 $candidat=auth()->id();
-   
+
                 $candidatures = Candidature::where('user_id', $candidat)->get();
                
 
@@ -76,8 +88,9 @@ class CandidatureController extends Controller
 
 
             public function detail_candidature(){
+                $notifications = Auth::user()->notifications;
 
-                return view('detail_affiche_candidature');
+                return view('detail_affiche_candidature','notifications');
             }
 
 

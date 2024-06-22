@@ -10,10 +10,20 @@ class Notification extends Model
     use HasFactory;
 
 
+//   fillabel
     protected $fillable = [
-        'message',
+        'type',
+        'notifiable_id',
+        'notifiable_type',
+        'data',
+        'read_at',
         'user_id',
     ];
+    // candidature
+    public function candidature()
+    {
+        return $this->belongsTo(Candidature::class);
+    }
 
     public function user()
     {

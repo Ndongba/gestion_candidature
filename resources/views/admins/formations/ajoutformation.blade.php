@@ -1,21 +1,20 @@
 <!-- Inclure Bootstrap CSS dans le <head> de votre document -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <x-layout>
+    {{-- <x-layout> --}}
         <style>
             #contact-form {
               position: fixed;
               top: 50%;
-              left: 50%;
+              left: 55%;
               transform: translate(-50%, -50%);
               width: 50%;
-              max-width: 600px;
+              max-width:50% ;
+              max-height: 100%;
               z-index: 1000;
-              background-color: white;
+              background-color: rgba(255, 255, 255, 0.883);
               padding: 20px; 
               border-radius: 15px;
               box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-              max-height: 90vh;
               overflow: hidden;
            }
 
@@ -46,65 +45,73 @@
                 border-radius: 10px;
             }
         </style>
-    
+                    
+                
         <div id="contact-form">
+            <button id="ok-btn"
+                        class="px-4 py-2 text-red-500 text-base font-medium rounded-md  shadow-sm hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                        x
+                    </button>
            <br>
            <form action="{{ route('formations.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="titre">Titre</label>
-                    <input type="text" class="form-control" id="titre" name="libelle" placeholder="Titre">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="form-group">
+                    <label for="titre" class="block font-medium text-gray-700">Titre</label>
+                    <input type="text" class=" appearance-none  p-3 placeholder:text-gray-500   placeholder-py-4 placeholder:placeholder  mt-1 block w-full py-4 rounded-2xl border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="titre" name="libelle" placeholder="Titre">
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="nombre_place">Nombre place</label>
-                    <input type="number" class="form-control" id="nombre_place" name="nombre_place" placeholder="Nombre de places">
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="date_debut">Date de dÃ©but</label>
-                    <input type="date" class="form-control" id="date_debut" name="date_debut">
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="date_fin">Date de fin</label>
-                    <input type="date" class="form-control" id="date_fin" name="date_fin">
+                <div class="form-group">
+                    <label for="nombre_place" class="block font-medium text-gray-700">Nombre de places</label>
+                    <input type="number" class="mt-1 block w-full rounded-2xl py-4 p-3 border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="nombre_place" name="nombre_place" placeholder="Nombre de places">
                 </div>
             </div>
-            <div class="form-group">
-                <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="date_fin_appel">Date fermeture</label>
-                    <input type="date" class="form-control" id="date_fin_appel" name="date_fin_appel">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div class="form-group">
+                    <label for="date_debut" class="block font-medium text-gray-700">Date de début</label>
+                    <input type="date" class="mt-1 block w-full rounded-2xl py-4 p-3  border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="date_debut" name="date_debut">
                 </div>
-                <div class="form-group col-md-6">
-                    <label for="date_debut_appel">Date ouverture</label>
-                    <input type="date" class="form-control" id="date_debut_appel" name="date_debut_appel">
+                <div class="form-group">
+                    <label for="date_fin" class="block font-medium text-gray-700">Date de fin</label>
+                    <input type="date" class="mt-1 block w-full rounded-2xl py-4 p-3  border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="date_fin" name="date_fin">
                 </div>
             </div>
-           <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="image">Image</label>
-                <input type="file" class="form-control-file" id="image" name="image">
+            <div class="form-group mt-4">
+                <label for="description" class="block font-medium text-gray-700">Description</label>
+                <textarea class="mt-1 block w-full rounded-2xl py-10  border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="description" name="description" placeholder="Description"></textarea>
             </div>
-            <div class="form-group">
-                <label for="etat">Statut</label>
-                <select class="form-control" id="etat" name="etat">
-                    <option value="ouvert">Ouvert</option>
-                    <option value="fermer">Fermer</option>
-                </select>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div class="form-group">
+                    <label for="date_debut_appel" class="block  font-medium text-gray-700">Date ouverture</label>
+                    <input type="date" class="mt-1 block w-full rounded-2xl py-4 p-3 pl-4  border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="date_debut_appel" name="date_debut_appel">
+                </div>
+                <div class="form-group">
+                    <label for="date_fin_appel" class="block font-medium text-gray-700">Date fermeture</label>
+                    <input type="date" class="mt-1 block w-full py-4 p-3 rounded-2xl border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="date_fin_appel" name="date_fin_appel">
+                </div>
             </div>
-           </div>
-            <button type="submit" class="btn btn-submit ">Ajouter</button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                <div class="form-group">
+                    <label for="image" class="block font-medium text-gray-700">Image</label>
+                    <input type="file" class="mt-1 block w-full rounded-2xl py-4 p-3  border-white shadow-sm focus:border-indigo-300 focus:ring focus:ring-red   -200 focus:ring-opacity-50" id="image" name="image">
+                </div>
+                <div class="form-group">
+                    <label for="etat" class="block font-medium text-gray-700">Statut</label>
+                    <select class="mt-1 block w-full rounded-2xl py-4 p-3  border-white shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="etat" name="etat">
+                        <option value="ouvert">Ouvert</option>
+                        <option value="fermer">Fermer</option>
+                    </select>
+                </div>
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="bg-red-500 text-white py-3 px-4 rounded-xl w-full hover:bg-red-600">Ajouter</button>
+            </div>
         </form>
+        
         </div>
     
        
     
      
         
-    </x-layout>
+    {{-- </x-layout> --}}
     
