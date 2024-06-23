@@ -50,11 +50,12 @@ Route::controller(CandidatureController::class)->middleware('auth')->prefix('can
     Route::get('post/{id}', 'ajouter_candidature')->name('candidature.ajouter');
     Route::post('/', 'traitement_candidature')->name('candidature.traitement');
     Route::get('afficher', 'afficher_candidature')->name('candidature.afficher');
+    Route::get('detail/{id}', 'detail_affiche_candidature')->name('candidature.affiche.detail');
 
 });
 
 // Routes pour l'administration (personnel uniquement)
-Route::controller(AdminController::class)->prefix('admin')->middleware('personnel')->group(function () {
+Route::controller(AdminController::class)->prefix('admin')->group(function () {
 
     Route::get('candidats', 'listeDesCandidats')->name('candidats.admin');
 

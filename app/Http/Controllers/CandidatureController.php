@@ -86,13 +86,13 @@ class CandidatureController extends Controller
                 
             }
 
-
-            public function detail_candidature(){
-                $notifications = Auth::user()->notifications;
-
-                return view('detail_affiche_candidature','notifications');
+            // detailCandidat UN CANDIDATURE
+            public function detail_affiche_candidature($id){
+                $candidature = Candidature::find($id);
+                return view('candidates.candidatures.detail_candidature', compact('candidature'));
             }
-
+             
+            
 
 
 }

@@ -230,12 +230,15 @@
                 <div class="flex items-center">
                     <!-- Add logo or title here if needed -->
                 </div>
-                <div class="flex pr-8 items-center">
+                <div class="flex pr-8 gap-5 items-center">
                     @auth
-                        <span class="text-white mr-4">{{ Auth::user()->prenom }}</span>
-                    @endauth
                     <img src="https://bdesign-julinho97.vercel.app/assets/img/BMB.png" alt="Admin Photo"
                         class="w-10 h-10 rounded-full">
+                    <div class=" block">
+                        <span class="text-white mr-4">{{ Auth::user()->prenom }} {{ Auth::user()->nom }}</span>
+                        <p class="text-white mr-4">{{ Auth::user()->role }}</p>
+                    </div>
+                    @endauth
                 </div>
             </nav>
             <!-- Content -->
