@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de Bord</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
@@ -44,13 +45,13 @@
     <!-- Sidebar -->
     <div class="flex">
         <!-- ACTVE MENU -->
-        <div class="sidebar z-20 bg-white shadow-lg h-screen w-64 hover:w-72 fixed transition-all duration-300">
-            <div class="p-6">
+        <div class="sidebar z-20 bg-white shadow-lg h-screen w-72 hover:w-72 fixed transition-all duration-300">
+            <div class="p-6 border-b-4">
                 <img src="https://simplon.sn/wp-content/uploads/2023/07/logo-simplonSenegal-2048x894.png"
                     alt="Admin Photo" class="w-full ">
 
             </div>
-            <nav class="mt-20 ">
+            <nav class="mt-9 ">
                 <a href="#"
                     class="flex items-center p-4  hover:bg-red-600 hover:text-white hover:scale-105 transition-all  @if (request()->routeIs('dashboard.admin')) rounded-3xl active @endif">
 
@@ -122,7 +123,7 @@
                     </svg> <span class="ml-4 text-gray-700 hover:text-white font-bold">Gestion Candidats</span>
                 </a>
                 <a href="{{ route('formations.afficher') }}"
-                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('afficher_candidature')) active @endif">
+                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('formations.afficher')) active @endif">
                     {{-- Fin icon candidat --}}
 
 
@@ -157,7 +158,7 @@
                     <span class="ml-4 text-gray-700 hover:text-white font-bold">Gestion formations</span>
                 </a>
                 <a href="#"
-                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('admin.clients', 'admin.clients.commandes')) active @endif">
+                    class="flex items-center p-4 text-gray-700 hover:bg-red-600 hover:text-white hover:scale-105 transition-all rounded-3xl @if (request()->routeIs('candidatures.filterByEtat', 'candidats.liste.admin','candidature.detail')) active @endif">
                     {{-- Fin icon candidatures --}}
 
                     <svg width="42" height="41" viewBox="0 0 42 41" fill="none"
@@ -242,7 +243,7 @@
                 </div>
             </nav>
             <!-- Content -->
-            <div class="pt-24 ml-64 px-8">
+            <div class="pt-12 ml-64 px-8">
                 <div class="p-6">
                     {{ $slot }}
                 </div>

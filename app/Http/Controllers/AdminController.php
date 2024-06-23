@@ -7,6 +7,7 @@ use App\Models\Formation;
 use App\Models\Candidature;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\CandidatureStatusUpdated;
 
@@ -16,6 +17,8 @@ class AdminController extends Controller
 
     public function index(Request $request, $formation_id)
     {
+$password= 123456;
+        
         $querye = $request->input('s');
     
         $formation = Formation::findOrFail($formation_id);
@@ -33,8 +36,7 @@ class AdminController extends Controller
                       });
                 });
             })
-            ->orderBy('created_at', 'desc')
-            ->get();
+            ->orderBy('created_at', 'desc')->paginate(10);
     
         return view('admins.candidats.index', compact('formation', 'candidatures', 'querye'));
     }
@@ -46,7 +48,7 @@ class AdminController extends Controller
     public function filterByEtat($formation_id, $etat)
     {
         $formation = Formation::findOrFail($formation_id);
-        $candidatures = $formation->candidatures()->where('etat', $etat)->orderBy('created_at', 'desc')->get();
+        $candidatures = $formation->candidatures()->where('etat', $etat)->orderBy('created_at', 'desc')->paginate(10);
 
         return view('admins.candidats.index', compact('formation', 'candidatures', 'etat'));
     }
@@ -55,7 +57,7 @@ class AdminController extends Controller
     //  Liste des tous les Candidates dans les different candidatures
     public function listeDesCandidats(){
         $formation = Formation::all();
-        $candidatures = Candidature::all();
+        $candidatures = Candidature::paginate(7);
         return view('admins.candidats.liste', compact('candidatures','formation'));
     }
 
@@ -82,7 +84,7 @@ class AdminController extends Controller
     public function listeCandidats($id)
     {
         $formation = Formation::find($id);
-        $candidatures = $formation->candidatures()->with('user')->get();
+        $candidatures = $formation->candidatures()->with('user')->paginate(10);
         return view('admins.candidats.index', compact('formation', 'candidatures'));
     }
 

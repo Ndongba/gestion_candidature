@@ -171,6 +171,12 @@
                             </td>
                         </tr>
                     @endforeach
+
+                                    <!-- Pagination -->
+                <div class="mt-4">
+                    {{ $candidatures->links() }}
+                </div>
+                <!-- Fin Pagination -->
                 </tbody>
             </table>
         </div>

@@ -89,7 +89,6 @@
                         placeholder="Recherche...">
                 </div>
             </div>
-
             <div class="overflow-x-auto">
                 <table class="min-w-full bg-white rounded-lg">
                     <thead class="text-black">
@@ -99,6 +98,7 @@
                             <th class="px-4 py-2 text-left">Prenom</th>
                             <th class="px-4 py-2 text-left">Email</th>
                             <th class="px-4 py-2 text-left">Téléphone</th>
+                            <th class="px-4 py-2 text-left">Formations</th>
                             <th class="px-4 py-2 text-left">État</th>
                             <th class="px-4 py-2 text-center">Actions</th>
                         </tr>
@@ -114,42 +114,30 @@
                                 <td class="border-t px-4 py-5">{{ $candidature->user->prenom }}</td>
                                 <td class="border-t px-4 py-5">{{ $candidature->user->email }}</td>
                                 <td class="border-t px-4 py-5">{{ $candidature->user->telephone }}</td>
-
+                                <td class="border-t px-4 py-5">{{ $candidature->formation->libelle }}</td>
                                 <td class="border-t px-4 py-5">{{ $candidature->etat }}</td>
-                                <td class="border-t  px-5 py-1">
+                                <td class="border-t px-5 py-1">
                                     <div class="flex">
-
-                                        {{-- Icon detail --}}
-                                        {{-- <a href="{{ route('candidature.detail', ['formation' => $id, 'candidature' => $candidature->id]) }}" class="text-blue-500 hover:text-blue-700">
-                                        <svg class="mr-3" width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13 6.7002H20V8.7002H13V6.7002ZM14 10.7002H20V12.7002H14V10.7002ZM12 2.7002H20V4.7002H12V2.7002ZM2 14.7002H12V13.7002C12 10.9432 9.757 8.7002 7 8.7002H5C2.243 8.7002 0 10.9432 0 13.7002V14.7002H2ZM6 7.7002C7.995 7.7002 9.5 6.1952 9.5 4.2002C9.5 2.2052 7.995 0.700195 6 0.700195C4.005 0.700195 2.5 2.2052 2.5 4.2002C2.5 6.1952 4.005 7.7002 6 7.7002Z" fill="#CE0033" />
-                                        </svg>
-                                    </a>
-                                     --}}
-                                        {{-- Fin Icon detail --}}
-
-                                        {{-- Icon Telecharger  --}}
-
-                                        <a href="{{ asset('storage/cv/' . $candidature->cv) }}"><svg width="13"
-                                                height="15" viewBox="0 0 13 15" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M10.8333 12.9572C11.1313 12.9572 11.375 12.7561 11.375 12.5104V4.468H8.66667C8.06745 4.468 7.58333 4.06867 7.58333 3.5744V1.3404H2.16667C1.86875 1.3404 1.625 1.54146 1.625 1.7872V12.5104C1.625 12.7561 1.86875 12.9572 2.16667 12.9572H10.8333ZM0 1.7872C0 0.801448 0.971615 0 2.16667 0H7.76953C8.34505 0 8.89688 0.187098 9.30313 0.522197L12.3669 3.04941C12.7732 3.38451 13 3.83969 13 4.31441V12.5104C13 13.4962 12.0284 14.2976 10.8333 14.2976H2.16667C0.971615 14.2976 0 13.4962 0 12.5104V1.7872Z"
-                                                    fill="#CE0033" />
-                                            </svg></a>
-                                        {{-- Fin Icon Telecharger  --}}
-
-
+                                        {{-- Icon Télécharger --}}
+                                        <a href="{{ asset('storage/cv/' . $candidature->cv) }}">
+                                            <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M10.8333 12.9572C11.1313 12.9572 11.375 12.7561 11.375 12.5104V4.468H8.66667C8.06745 4.468 7.58333 4.06867 7.58333 3.5744V1.3404H2.16667C1.86875 1.3404 1.625 1.54146 1.625 1.7872V12.5104C1.625 12.7561 1.86875 12.9572 2.16667 12.9572H10.8333ZM0 1.7872C0 0.801448 0.971615 0 2.16667 0H7.76953C8.34505 0 8.89688 0.187098 9.30313 0.522197L12.3669 3.04941C12.7732 3.38451 13 3.83969 13 4.31441V12.5104C13 13.4962 12.0284 14.2976 10.8333 14.2976H2.16667C0.971615 14.2976 0 13.4962 0 12.5104V1.7872Z" fill="#CE0033" />
+                                            </svg>
+                                        </a>
+                                        {{-- Fin Icon Télécharger --}}
                                     </div>
-                                    {{-- <a href="{{ route('admin.candidatures.', $candidature) }}" class="text-blue-500 hover:text-blue-700">
-                                <i class="fas fa-eye text-red-600"></i>
-                            </a> --}}
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+                <!-- Pagination -->
+                <div class="mt-4">
+                    {{ $candidatures->links() }}
+                </div>
+                <!-- Fin Pagination -->
             </div>
+            
         </div>
         <style>
             #contact-form {

@@ -1,10 +1,6 @@
 <x-layout>
 
-    <head>
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    </head>
+ 
 
     @if (session('success'))
         <div class="alert alert-success" role="alert">
@@ -33,9 +29,9 @@
             </div>
         </div>
 
-        <div class="ml-8 flex-1">
+        <div class="ml-8  pl-36 flex-1">
 
-            <div class="card p-1 px-7     rounded-lg shadow-md mt-4">
+            <div class="card p-1 px-6 rounded-lg shadow-md mt-4">
                 <div class="flex justify-between">
                     <div class="flex-1 px-6">
                         <span class="bold ">Détaille</span>
@@ -52,7 +48,7 @@
             </div>
         </div>
     </div>
-    <div class="flex items-center  border-bottom px-11  row-cols-3  justify-between ">
+    <div class="flex items-center  border-b-2 px-11  row-cols-3  justify-between ">
         <div class="mr-4 mt-3">
             <p class="text-green-600 bold"><strong class="text-black">Statut :</strong> {{ $candidature->etat }}</p>
         </div>

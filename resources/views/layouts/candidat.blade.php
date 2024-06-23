@@ -25,13 +25,13 @@
         <nav>
             <div class="logo">
                 <a href="#">
-                    <img src="#" alt="Logo">
+                    <img src="{{ asset('./images/simplon.png') }}" alt="Logo">
                 </a>
             </div>
             <div class="flex items-center">
                 <ul>
                     @if (!Auth::user())
-                        <li><a href="#">Accueil</a></li>
+                        <li><a href="{{ url('/') }}">Accueil</a></li>
                         <li><a href="#">À propos</a></li>
                         <li><a href="{{ route('formations.index') }}">Formations</a></li>
                         <li><a href="#">Contact</a></li>
@@ -49,7 +49,7 @@
                     {{-- closs notification --}}    <!-- Badge de notification -->
 
                     {{-- Badge de notification --}}
-                    <button
+                    <a href="{{ url('notifications') }}"><button
                         class="bg-rose-500 text-white rounded-md px-4 flex justify-end items-center py-2 hover:bg-rose-700 transition"
                         onclick="openModal('modelConfirm')">
                         <div class="relative">
@@ -63,6 +63,7 @@
                             </div>
                         </div>
                     </button>
+                </a>
                 
                     {{-- Include Notifications --}}
                 
@@ -89,8 +90,9 @@
         </nav>
     </header>
 
-    <main>
-        {{ $slot }}
+
+    <main >
+        {{$slot}}
     </main>
 
   

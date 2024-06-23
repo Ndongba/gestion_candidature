@@ -24,9 +24,8 @@
             </div>
             <div class="flex items-center py-4 bg-white border rounded-2xl shadow overflow-hidden">
                 <div class="px-4 text-gray-700">
-                    <h3 class="text-sm tracking-wider">Nombre apprenants</h3>
-                    {{-- <p class="text-3xl bold py-2">{{ $formations->candidatures()->count() }} --}}
-                    <p class="text-3xl bold py-2">12
+                    <h3 class="text-sm tracking-wider">Nombre de formation lancée</h3>
+                    <p class="text-3xl bold py-2">{{ $formations->count() }}
                     </p>
                 </div>
             </div>
@@ -92,6 +91,7 @@
                             <th class="px-4 py-2 text-left">Date debut</th>
                             <th class="px-4 py-2 text-left">Date Fin </th>
                             <th class="px-4 py-2 text-left">Nombre de places</th>
+                            <th class="px-4 py-2 text-left">Nombre de candidats
                             <th class="px-4 py-2 text-left">Status</th>
                             <th class="px-4 py-2 text-center">Actions</th>
                         </tr>
@@ -112,6 +112,7 @@
                                 <td class="border-t px-4 py-5">{{ $formation->date_debut }}</td>
                                 <td class="border-t px-4 py-5">{{ $formation->date_fin }}</td>
                                 <td class="border-t px-4 py-5">{{ $formation->nombre_place }}</td>
+                                <td class="border-t px-4 py-5">{{ $formation->candidatures->count() }}</td>
                                 <td class="border-t px-4 py-5">{{ $formation->etat }}</td>
                              
                                 

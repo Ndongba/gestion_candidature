@@ -27,7 +27,7 @@ class UserFactory extends Factory
                     
 
         return [
-            'Name' => 'Ndiaye',
+            // 'Name' => 'Ndiaye',
             'nom' => 'Ndiaye',
             'prenom' => 'Souleymane',
             'email' => 'souleymane@gmail.com',
